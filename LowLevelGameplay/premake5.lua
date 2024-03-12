@@ -51,7 +51,7 @@ project "LowLevelGameplay"
         {
             "sfml-graphics-s-d",
             "sfml-window-s-d",
-            "sfml-systems-s-d",
+            "sfml-system-s-d",
             "sfml-audio-s-d",
             "sfml-network-s-d"
         }
@@ -64,7 +64,7 @@ project "LowLevelGameplay"
         {
             "sfml-graphics-s",
             "sfml-window-s",
-            "sfml-systems-s",
+            "sfml-system-s",
             "sfml-audio-s",
             "sfml-network-s"
         }
