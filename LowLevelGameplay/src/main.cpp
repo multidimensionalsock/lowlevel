@@ -3,7 +3,7 @@
 
 int main() 
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML Works!");
+	sf::RenderWindow window(sf::VideoMode(292, 240), "SFML Works!"); //original joust resolution
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
 
