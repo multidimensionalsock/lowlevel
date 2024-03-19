@@ -6,6 +6,9 @@
 //{
 	int main()
 	{
+		float timeSincePhysicsStep = 0;
+		const int FIXEDFRAMERATE(50);
+
 		sf::RenderWindow window(sf::VideoMode(1800, 900), "SFML Works!"); //original joust resolution
 
 		LLGP::Vector2<float> rectSize = LLGP::Vector2<float>::one * 100;
@@ -34,6 +37,15 @@
 				if (event.type == sf::Event::Closed) {
 					window.close();
 				}
+			}
+
+			timeSincePhysicsStep += deltaTime;
+			while (timeSincePhysicsStep > FIXEDFRAMERATE) 
+			{
+				//step the physics
+				//collect collision info
+				//dispatch collisions
+				timeSincePhysicsStep -= FIXEDFRAMERATE;
 			}
 
 			window.clear();
