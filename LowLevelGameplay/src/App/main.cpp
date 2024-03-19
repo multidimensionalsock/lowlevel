@@ -1,13 +1,18 @@
 #include <SFML/Graphics.hpp>
-#include <Core/Vector2.h>
+#include "Core/Vector2.h"
 
-namespace LLGP
-{
+//namespace LLGP
+//{
 	int main()
 	{
-		sf::RenderWindow window(sf::VideoMode(292, 240), "SFML Works!"); //original joust resolution
-		sf::CircleShape shape(100.f);
-		shape.setFillColor(sf::Color::Green);
+		sf::RenderWindow window(sf::VideoMode(1800, 900), "SFML Works!"); //original joust resolution
+
+		LLGP::Vector2<float> rectSize = LLGP::Vector2<float>::one * 100;
+		LLGP::Vector2<float> rectPos = LLGP::Vector2<float>(900, 450);
+		sf::RectangleShape shape(rectSize);
+		shape.setFillColor(sf::Color::Blue);
+		shape.setOrigin(rectSize / 2);
+		shape.setPosition(rectPos);
 
 		while (window.isOpen())
 		{
@@ -25,4 +30,4 @@ namespace LLGP
 
 		return 0;
 	}
-}
+//}
