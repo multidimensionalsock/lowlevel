@@ -84,6 +84,18 @@ namespace LLGP
 	template<typename T> requires arithmetic<T>
 	const Vector2<T> Vector2<T>::one(static_cast<T>(1), static_cast<T>(1));
 
+	template<typename T> requires arithmetic<T>
+	const Vector2<T> Vector2<T>::left(static_cast<T>(-1), static_cast<T>(0));
+
+	template<typename T> requires arithmetic<T>
+	const Vector2<T> Vector2<T>::right(static_cast<T>(1), static_cast<T>(0));
+
+	template<typename T> requires arithmetic<T>
+	const Vector2<T> Vector2<T>::up(static_cast<T>(0), static_cast<T>(1));
+
+	template<typename T> requires arithmetic<T>
+	const Vector2<T> Vector2<T>::down(static_cast<T>(-1), static_cast<T>(0));
+
 	typedef Vector2<int>				Vector2i;
 	typedef Vector2<unsigned int>		Vector2u;
 	typedef Vector2<double>				Vector2d;
