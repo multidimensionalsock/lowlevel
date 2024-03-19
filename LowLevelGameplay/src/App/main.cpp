@@ -9,10 +9,14 @@
 
 		LLGP::Vector2<float> rectSize = LLGP::Vector2<float>::one * 100;
 		LLGP::Vector2<float> rectPos = LLGP::Vector2<float>(900, 450);
+		sf::Texture rectTex; rectTex.loadFromFile("Textures/joustsprites.jpg");
 		sf::RectangleShape shape(rectSize);
-		shape.setFillColor(sf::Color::Blue);
+		//shape.setFillColor(sf::Color::Blue);
+		shape.setTexture(&rectTex);
 		shape.setOrigin(rectSize / 2);
 		shape.setPosition(rectPos);
+
+
 
 		while (window.isOpen())
 		{
