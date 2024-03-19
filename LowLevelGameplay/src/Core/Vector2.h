@@ -1,5 +1,6 @@
 #pragma once
-#include "arithmetic_concept.h"
+#include <Core/arithmetic_concept.h>
+#include <SFML/Graphics.hpp>
 
 namespace LLGP 
 {
@@ -16,6 +17,9 @@ namespace LLGP
 
 		template<typename U> requires arithmetic<U>
 		explicit Vector2(const Vector2<U>& in) : x(static_cast<T>(in.x)), y(static_cast<T>(in.y)) {}
+
+		template<typename U> requires arithmetic<U>
+		operator sf::Vector2<U>() {return sf::Vector2<U>(static_cast<U>(x), static_cast<U>(y)) }
 
 #pragma endregion
 
