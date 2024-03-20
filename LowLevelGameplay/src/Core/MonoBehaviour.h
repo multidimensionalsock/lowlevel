@@ -8,9 +8,9 @@ protected:
 	LLGP::Vector2<float> position;
 	LLGP::Vector2<float> rectSize;
 	LLGP::Vector2<float> rectPos;
-	sf::Texture rectTex;
+	sf::Texture* rectTex;
 	LLGP::Vector2i spritesInTex;
-	LLGP::Vector2i rectTexSize;
+	LLGP::Vector2i RectTexSize;
 	sf::IntRect rectTexUV;
 	
 
@@ -21,7 +21,7 @@ public:
 	virtual void Update(float deltaTime); // called every frame
 	virtual void FixedUpdate(float fixedDeltaTime); //called 50 times a second
 	virtual void Draw(); //handles drawing to screen, once a frame
-	virtual void initMesh();
+	virtual void initMesh(sf::Texture* texture, LLGP::Vector2i rectTexSize);
 	sf::RectangleShape objectRenderer;
 
 };
