@@ -1,6 +1,7 @@
 #pragma once
 #include "Core/Vector2.h"
 #include <SFML/Graphics.hpp>
+#include "Core/SceneManager.h"
 
 class MonoBehaviour
 {
@@ -15,9 +16,8 @@ protected:
 	
 
 public:
-	MonoBehaviour(); //initialize
+	MonoBehaviour(SceneManager* manager); //initialize
 	~MonoBehaviour(); //deinitilize
-	virtual void Start(); //called on creation 
 	virtual void Update(float deltaTime); // called every frame
 	virtual void FixedUpdate(float fixedDeltaTime); //called 50 times a second
 	virtual void Draw(); //handles drawing to screen, once a frame

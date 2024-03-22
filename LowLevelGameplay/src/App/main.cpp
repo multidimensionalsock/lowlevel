@@ -5,7 +5,7 @@
 #include "Core/InputHandling.h"
 #include "Core/SceneManager.h"
 
-#define FIXEDFRAMERATE 50
+#define FIXEDFRAMERATE 0.00005f //50 fps
 
 //namespace LLGP
 //{
@@ -16,7 +16,7 @@
 		sf::RenderWindow window(sf::VideoMode(1800, 900), "SFML Works!"); //original joust resolution
 
 		//create objects here
-		MonoBehaviour* test = new MonoBehaviour();
+		//MonoBehaviour* test = new MonoBehaviour(this);
 		InputHandling* input = new InputHandling(); //tracks inputs
 		SceneManager* sceneManager = new SceneManager();
 		
@@ -35,13 +35,17 @@
 
 			std::chrono::steady_clock::time_point now = std::chrono::steady_clock::now();
 			deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(now - lastTime).count() / 1000000.f;
+			
 			lastTime = now;
 
+			//fixed update not calling 50 times a second
 			timeSincePhysicsStep += deltaTime;
 			while (timeSincePhysicsStep > FIXEDFRAMERATE) 
 			{
+				std::cout << "fixed";
 				//run fixed update on components 
-				sceneManager->CallFixedUpdate();
+				//need to work out a fixed delta to use here
+				sceneManager->CallFixedUpdate(deltaTime);
 				//step the physics
 				//collect collision info
 				//dispatch collisions
@@ -50,7 +54,7 @@
 
 			//poll for inputs for mono behaviour to use 
 			input->PollInputs();
-			sceneManager->CallUpdate();
+			sceneManager->CallUpdate(deltaTime);
 			
 			
 

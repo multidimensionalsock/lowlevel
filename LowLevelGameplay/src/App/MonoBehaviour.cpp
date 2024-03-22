@@ -1,27 +1,31 @@
 #include "Core/MonoBehaviour.h"
 
-MonoBehaviour::MonoBehaviour()
+MonoBehaviour::MonoBehaviour(SceneManager* manager)
 {
 	sf::Texture rectTex; rectTex.loadFromFile("Textures/joustsprites.jpg");
 	//texture isnt loading but otherwise working? 
 	initMesh(&rectTex, LLGP::Vector2i(rectTex.getSize().x, rectTex.getSize().y));
+
+	manager->Update += std::bind(&MonoBehaviour::Update, this, std::placeholders::_1);
+	manager->FixedUpdate += std::bind(&MonoBehaviour::FixedUpdate, this, std::placeholders::_1);
+	//manager->Draw += std::bind(&MonoBehaviour::Draw, this, std::placeholders::_1);
+
+	//add listeners to scene manager functions to the below 
 }
 
 MonoBehaviour::~MonoBehaviour()
 {
 }
 
-void MonoBehaviour::Start()
-{
-
-}
 
 void MonoBehaviour::Update(float deltaTime)
 {
+	//std::cout << "Update called";
 }
 
 void MonoBehaviour::FixedUpdate(float fixedDeltaTime)
 {
+	//std::cout << "Fixed Update called";
 }
 
 void MonoBehaviour::Draw()

@@ -5,12 +5,12 @@
 class SceneManager
 { 
 public:
-	LLGP::Event<> Update;
-	LLGP::Event<> FixedUpdate;
+	LLGP::Event<float> Update;
+	LLGP::Event<float> FixedUpdate;
 	LLGP::Event<> Draw;
 
-	void CallUpdate() { Update(); };
-	void CallFixedUpdate() { FixedUpdate(); }
+	void CallUpdate(float delta) { Update(delta); };
+	void CallFixedUpdate(float delta) { FixedUpdate(delta); }
 	void CallDraw() { Draw(); }
 
 	SceneManager();
