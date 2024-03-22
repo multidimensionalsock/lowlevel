@@ -5,7 +5,7 @@
 #include "Core/InputHandling.h"
 #include "Core/SceneManager.h"
 
-#define FIXEDFRAMERATE 0.00005f //50 fps
+#define FIXEDFRAMERATE 0.0002f //50 fps i think???
 
 //namespace LLGP
 //{
@@ -42,10 +42,9 @@
 			timeSincePhysicsStep += deltaTime;
 			while (timeSincePhysicsStep > FIXEDFRAMERATE) 
 			{
-				std::cout << "fixed";
 				//run fixed update on components 
 				//need to work out a fixed delta to use here
-				sceneManager->CallFixedUpdate(deltaTime);
+				sceneManager->CallFixedUpdate(timeSincePhysicsStep - FIXEDFRAMERATE); //fixed delta time
 				//step the physics
 				//collect collision info
 				//dispatch collisions

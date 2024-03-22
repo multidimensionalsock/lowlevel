@@ -20,12 +20,12 @@ MonoBehaviour::~MonoBehaviour()
 
 void MonoBehaviour::Update(float deltaTime)
 {
-	//std::cout << "Update called";
+	std::cout << "1";
 }
 
 void MonoBehaviour::FixedUpdate(float fixedDeltaTime)
 {
-	//std::cout << "Fixed Update called";
+	std::cout << "2";
 }
 
 void MonoBehaviour::Draw()
