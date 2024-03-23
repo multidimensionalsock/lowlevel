@@ -2,7 +2,7 @@
 #include "Core/Event.h"
 
 //used to call events for function in monobehaviour by the main function 
-class SceneManager
+class SceneManager : Object
 { 
 public:
 	LLGP::Event<float> Update;
