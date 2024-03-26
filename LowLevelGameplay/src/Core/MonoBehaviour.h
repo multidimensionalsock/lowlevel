@@ -10,10 +10,6 @@ namespace LLGP
 {
 	class MonoBehaviour : public Object
 	{
-	public:
-
-
-
 	protected:
 		//move these into a renderer
 		LLGP::Vector2<float> position;

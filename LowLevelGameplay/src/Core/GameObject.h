@@ -1,8 +1,10 @@
 #pragma once
 #include "Core/Object.h"
 #include "Core/component_concept.h"
+#include "Core/Transform.h"
 
 class MonoBehaviour;
+class Transform;
 
 class GameObject : public Object
 {
@@ -10,7 +12,7 @@ public:
 	GameObject();
 	GameObject(std::string name, std::string tag) { m_Name = name; m_Tag = tag; }
 	GameObject(const GameObject&) = default;
-	//Transform* transform;
+	Transform* transform;
 	inline void SetName(std::string newName) { m_Name = newName; }
 	inline std::string GetName() { return m_Name; }
 
