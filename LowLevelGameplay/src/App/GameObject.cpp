@@ -19,7 +19,7 @@ T* GameObject::GetComponent()
 template<class T> requires isComponent<T>
 T* GameObject::AddComponent() 
 {
-	std::unique_ptr<MonoBehaviour> newComp = std::make_unique<T>(this);
+	std::unique_ptr<LLGP::MonoBehaviour> newComp = std::make_unique<T>(this);
 	m_Components.push_back(std::move(newComp));
 	return static_cast<T*>(m_Components[m_Components.size()].get());
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include "Core/Event.h"
+#include "Core/Object.h"
 
 //used to call events for function in monobehaviour by the main function 
 class SceneManager : Object

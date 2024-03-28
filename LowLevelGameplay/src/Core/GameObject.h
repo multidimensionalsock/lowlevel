@@ -1,8 +1,7 @@
 #pragma once
 #include "Core/Object.h"
 #include "Core/component_concept.h"
-
-class MonoBehaviour;
+#include "Core/MonoBehaviour.h"
 
 class GameObject : public Object
 {
@@ -28,7 +27,7 @@ private:
 	std::string m_Name;
 	bool m_Active;
 	std::string m_Tag;
-	std::vector<std::unique_ptr<MonoBehaviour>> m_Components;
+	std::vector<std::unique_ptr<LLGP::MonoBehaviour>> m_Components;
 
 public:
 	inline bool operator==(const GameObject& other) { return this->uuid == other.uuid; }

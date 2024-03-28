@@ -5,7 +5,7 @@
 SceneManager::SceneManager()
 {
 	std::cout << "Scene Manager Created";
-	MonoBehaviour* test = new MonoBehaviour(this);
+	//LLGP::MonoBehaviour* test = new LLGP::MonoBehaviour();
 }
 
 SceneManager::~SceneManager()

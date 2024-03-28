@@ -1,6 +1,7 @@
 #include "Core/MonoBehaviour.h"
+using namespace LLGP;
 
-MonoBehaviour::MonoBehaviour(SceneManager* manager)
+MonoBehaviour::MonoBehaviour(GameObject* owner, SceneManager* manager)
 {
 	sf::Texture rectTex; rectTex.loadFromFile("Textures/joustsprites.jpg");
 	//texture isnt loading but otherwise working? 
@@ -8,15 +9,7 @@ MonoBehaviour::MonoBehaviour(SceneManager* manager)
 
 	manager->Update += std::bind(&MonoBehaviour::Update, this, std::placeholders::_1);
 	manager->FixedUpdate += std::bind(&MonoBehaviour::FixedUpdate, this, std::placeholders::_1);
-	//manager->Draw += std::bind(&MonoBehaviour::Draw, this, std::placeholders::_1);
-
-	//add listeners to scene manager functions to the below 
 }
-
-MonoBehaviour::~MonoBehaviour()
-{
-}
-
 
 void MonoBehaviour::Update(float deltaTime)
 {
