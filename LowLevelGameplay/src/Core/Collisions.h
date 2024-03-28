@@ -1,6 +1,7 @@
 #pragma once
 #include "Core/Transform.h"
 #include "Core//MonoBehaviour.h"
+#include <vector>
 
 enum CollisionType
 {
@@ -13,7 +14,7 @@ namespace LLGP
 {
 	//need to check what its colliding with so that it knows which math thing to do 
 	//doesnt need to check against static objects (e.g. the platofrms never move its collider doesnt need to check
-	class Collisions 
+	class Collisions : public MonoBehaviour
 	{
 		// https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 	public:
@@ -23,7 +24,7 @@ namespace LLGP
 
 		Collisions();
 		~Collisions();
-		virtual void FixedUpdate(float fixedDeltaTime, Collisions collider1, Collisions collider2);
+		void FixedUpdate(float fixedDeltaTime, std::vector<GameObject*> gameObjectsWithColliders);
 
 	protected:
 		bool CircleCircleCollision(CircleCollider circle1, CircleCollider circle2);
