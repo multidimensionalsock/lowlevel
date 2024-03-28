@@ -31,7 +31,6 @@ namespace LLGP
 		void applyForce(Vector2<float> force) { _force = force; };
 		void clearForce() { _force = Vector2<float>::zero; };
 		void AccumulateForce(Vector2<float> force) { _force += force; };
-
 	};
 }
 

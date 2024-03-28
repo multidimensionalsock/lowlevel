@@ -5,7 +5,7 @@
 SceneManager::SceneManager()
 {
 	std::cout << "Scene Manager Created";
-	MonoBehaviour* test = new MonoBehaviour(this);
+	//MonoBehaviour* test = new MonoBehaviour(this);
 }
 
 SceneManager::~SceneManager()

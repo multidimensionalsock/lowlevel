@@ -1,8 +1,8 @@
 #pragma once
 #include "Core/Event.h"
-
+#include "Core//GameObject.h"
 //used to call events for function in monobehaviour by the main function 
-class SceneManager : Object
+class SceneManager : public GameObject
 { 
 public:
 	LLGP::Event<float> Update;

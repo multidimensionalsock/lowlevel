@@ -10,6 +10,9 @@ namespace LLGP
 {
 	class MonoBehaviour : public Object
 	{
+	private: 
+		
+
 	protected:
 		//move these into a renderer
 		LLGP::Vector2<float> position;
@@ -21,10 +24,11 @@ namespace LLGP
 		sf::IntRect rectTexUV;
 
 		GameObject* _GameObject;
+		SceneManager* _sceneManager;
 
 
 	public:
-		MonoBehaviour(GameObject* owner) : _GameObject(owner) {} //initialize
+		MonoBehaviour(GameObject* owner, SceneManager* sceneManger) : _GameObject(owner) {}; //initialize
 		virtual ~MonoBehaviour() {}; //deinitilize
 
 		GameObject* GetGameObject() { return _GameObject; }

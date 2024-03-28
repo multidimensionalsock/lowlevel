@@ -1,38 +1,34 @@
 #include "Core/MonoBehaviour.h"
 
-MonoBehaviour::MonoBehaviour(SceneManager* manager)
+LLGP::MonoBehaviour::MonoBehaviour(GameObject* owner, SceneManager* sceneManger)
 {
 	sf::Texture rectTex; rectTex.loadFromFile("Textures/joustsprites.jpg");
 	//texture isnt loading but otherwise working? 
 	initMesh(&rectTex, LLGP::Vector2i(rectTex.getSize().x, rectTex.getSize().y));
 
-	manager->Update += std::bind(&MonoBehaviour::Update, this, std::placeholders::_1);
-	manager->FixedUpdate += std::bind(&MonoBehaviour::FixedUpdate, this, std::placeholders::_1);
-	//manager->Draw += std::bind(&MonoBehaviour::Draw, this, std::placeholders::_1);
+	_sceneManager->Update += std::bind(&MonoBehaviour::Update, this, std::placeholders::_1);
+	_sceneManager->FixedUpdate += std::bind(&MonoBehaviour::FixedUpdate, this, std::placeholders::_1);
+	//_sceneManager->Draw += std::bind(&MonoBehaviour::Draw, this, std::placeholders::_1);
 
 	//add listeners to scene manager functions to the below 
 }
 
-MonoBehaviour::~MonoBehaviour()
+LLGP::MonoBehaviour::~MonoBehaviour()
 {
 }
 
 
-void MonoBehaviour::Update(float deltaTime)
+void LLGP::MonoBehaviour::Update(float deltaTime)
 {
 	std::cout << "1";
 }
 
-void MonoBehaviour::FixedUpdate(float fixedDeltaTime)
+void LLGP::MonoBehaviour::FixedUpdate(float fixedDeltaTime)
 {
 	std::cout << "2";
 }
 
-void MonoBehaviour::Draw()
-{
-}
-
-void MonoBehaviour::initMesh(sf::Texture* texture, LLGP::Vector2i rectTexSize)
+void LLGP::MonoBehaviour::initMesh(sf::Texture* texture, LLGP::Vector2i rectTexSize)
 {
 	rectSize = LLGP::Vector2<float>::one * 100;
 	rectPos = LLGP::Vector2<float>(900, 450);
