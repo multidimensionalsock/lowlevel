@@ -29,6 +29,7 @@ namespace LLGP
 		bool CircleCircleCollision(CircleCollider circle1, CircleCollider circle2);
 		bool AABBAABBCollision(AABBCollider aabb1, AABBCollider aabb2);
 		bool CircleAABBCollision(CircleCollider circle1, AABBCollider aabb2);
+		
 	};
 
 	class AABBCollider : public Collisions 
