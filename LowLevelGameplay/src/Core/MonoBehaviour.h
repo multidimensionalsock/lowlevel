@@ -24,15 +24,15 @@ namespace LLGP
 		LLGP::Vector2i RectTexSize;
 		sf::IntRect rectTexUV;
 
-		GameObject* _GameObject;
+		Object* _GameObject;
 
 
 	public:
-		MonoBehaviour(GameObject* owner) : _GameObject(owner) {} //initialize
+		MonoBehaviour(Object* owner) : _GameObject(owner) {} //initialize
 		MonoBehaviour(GameObject* owner, SceneManager* manager);
 		virtual ~MonoBehaviour() {}; //deinitilize
 
-		GameObject* GetGameObject() { return _GameObject; }
+		Object* GetGameObject() { return _GameObject; }
 
 		virtual void OwnerActiveChange(bool newActive) {}
 

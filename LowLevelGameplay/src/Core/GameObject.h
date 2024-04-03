@@ -1,7 +1,10 @@
 #pragma once
 #include "Core/Object.h"
 #include "Core/component_concept.h"
-#include "Core/MonoBehaviour.h"
+#include <iostream>
+//#include "Core/MonoBehaviour.h"
+
+class MonoBehaviour;
 
 class GameObject : public Object
 {
@@ -19,15 +22,44 @@ public:
 	inline void SetTag(std::string newTag) { m_Tag = newTag; }
 	inline bool CompareTag(std::string comp) { return m_Tag == comp;  }
 
-	template<class T> requires isComponent<T> T* GetComponent();
-	template<class T> requires isComponent<T> T* AddComponent();
-	template<class T> requires isComponent<T> bool RemoveComponent(T* comp);
+	template<class T> requires isComponent<T> T* GetComponent()
+	{
+		T* component;
+		for (int i = 0; i < m_Components.size(); i++) 
+		{
+			component = static_cast<T>(m_Components[i]);
+			if (component != nullptr) 
+			{
+				return component;
+			}
+		}
+		return nullptr;
+	}
+	template<class T> requires isComponent<T> void AddComponent(T* comp) 
+	{
+		m_Components.push_back(comp);
+	}
+
+	template<class T> requires isComponent<T> bool RemoveComponent(T* comp)
+	{
+		T* component;
+		for (int i = 0; i < m_Components.size(); i++)
+		{
+			component = static_cast<T>(m_Components[i]);
+			if (component != nullptr)
+			{
+				m_Components.erase(m_Components.begin() + i);
+				return true;
+			}
+		}
+		return false;
+	};
 
 private: 
 	std::string m_Name;
 	bool m_Active;
 	std::string m_Tag;
-	std::vector<std::unique_ptr<LLGP::MonoBehaviour>> m_Components;
+	std::vector<LLGP::MonoBehaviour> m_Components;
 
 public:
 	inline bool operator==(const GameObject& other) { return this->uuid == other.uuid; }
