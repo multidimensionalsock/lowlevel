@@ -15,19 +15,13 @@ namespace LLGP
 
 
 	protected:
-		//move these into a renderer
-		LLGP::Vector2<float> position;
-		LLGP::Vector2<float> rectSize;
-		LLGP::Vector2<float> rectPos;
-		sf::Texture* rectTex;
-		LLGP::Vector2i spritesInTex;
-		LLGP::Vector2i RectTexSize;
-		sf::IntRect rectTexUV;
+		
 
 		GameObject* _GameObject;
 
 
 	public:
+		MonoBehaviour() {};
 		MonoBehaviour(GameObject* owner) : _GameObject(owner) {} //initialize
 		MonoBehaviour(GameObject* owner, SceneManager* manager);
 		virtual ~MonoBehaviour() {}; //deinitilize
@@ -41,7 +35,7 @@ namespace LLGP
 		virtual void FixedUpdate(float fixedDeltaTime); //called 50 times a second
 		virtual void Draw(); //handles drawing to screen, once a frame
 		virtual void initMesh(sf::Texture* texture, LLGP::Vector2i rectTexSize);
-		sf::RectangleShape objectRenderer;
+		
 
 	};
 }
