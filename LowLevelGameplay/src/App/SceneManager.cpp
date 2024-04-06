@@ -7,7 +7,7 @@ SceneManager::SceneManager()
 {
 	std::cout << "Scene Manager Created";
 	GameObject* testObj = new GameObject("test", "test");
-	LLGP::MonoBehaviour* test = new LLGP::MonoBehaviour(this);
+	LLGP::MonoBehaviour* test = new LLGP::MonoBehaviour(testObj);
 	testObj->AddComponent(test);
 }
 

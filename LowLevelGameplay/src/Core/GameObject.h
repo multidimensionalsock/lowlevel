@@ -2,9 +2,17 @@
 #include "Core/Object.h"
 #include "Core/component_concept.h"
 #include <iostream>
+
 //#include "Core/MonoBehaviour.h"
 
 class MonoBehaviour;
+
+struct Transform 
+{
+	LLGP::Vector2<float> position;
+	LLGP::Vector2<float> rotation;
+	LLGP::Vector2<float> scale;
+};
 
 class GameObject : public Object
 {
@@ -12,7 +20,7 @@ public:
 	GameObject();
 	GameObject(std::string name, std::string tag) { m_Name = name; m_Tag = tag; }
 	GameObject(const GameObject&) = default;
-	//Transform* transform;
+	Transform transform;
 	inline void SetName(std::string newName) { m_Name = newName; }
 	inline std::string GetName() { return m_Name; }
 
@@ -59,7 +67,7 @@ private:
 	std::string m_Name;
 	bool m_Active;
 	std::string m_Tag;
-	std::vector<LLGP::MonoBehaviour> m_Components;
+	std::vector<LLGP::MonoBehaviour*> m_Components;
 
 public:
 	inline bool operator==(const GameObject& other) { return this->uuid == other.uuid; }
