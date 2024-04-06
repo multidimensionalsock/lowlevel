@@ -15,10 +15,9 @@
 
 		sf::RenderWindow window(sf::VideoMode(1800, 900), "SFML Works!"); //original joust resolution
 
-		//create objects here
-		//MonoBehaviour* test = new MonoBehaviour(this);
 		InputHandling* input = new InputHandling(); //tracks inputs
 		SceneManager* sceneManager = new SceneManager();
+		sceneManager->window = &window;
 		
 
 		std::chrono::steady_clock::time_point lastTime = std::chrono::steady_clock::now();
@@ -55,11 +54,8 @@
 			input->PollInputs();
 			sceneManager->CallUpdate(deltaTime);
 			
-			
-
 			window.clear();
-			sceneManager->CallDraw();
-			//window.draw(test->objectRenderer);
+			sceneManager->CallDraw(window);
 			window.display();
 		}
 

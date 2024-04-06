@@ -8,11 +8,12 @@ class SceneManager : Object
 public:
 	LLGP::Event<float> Update;
 	LLGP::Event<float> FixedUpdate;
-	LLGP::Event<> Draw;
+	LLGP::Event<sf::RenderWindow&> Draw;
+	sf::RenderWindow* window;
 
 	void CallUpdate(float delta) { Update(delta); };
 	void CallFixedUpdate(float delta) { FixedUpdate(delta); }
-	void CallDraw() { Draw(); }
+	void CallDraw(sf::RenderWindow& win) { Draw(win); }
 
 	SceneManager();
 	~SceneManager();

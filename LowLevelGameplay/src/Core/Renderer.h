@@ -1,16 +1,18 @@
 #pragma once
 #include "Core/MonoBehaviour.h"
+#include <SFML/Graphics.hpp>
 
 namespace LLGP
 {
-	class Renderer : MonoBehaviour
+	class Renderer : public MonoBehaviour
 	{
 	public: 
 		//Renderer();
-		Renderer(GameObject* owner, SceneManager* manager);
+		Renderer(GameObject* owner);
 
 		void Update(float deltaTime) override; // called every frame
 		void FixedUpdate(float fixedDeltaTime) override;
+		void Draw(sf::RenderWindow& win) override;
 
 		
 
@@ -18,7 +20,7 @@ namespace LLGP
 		LLGP::Vector2<float> position;
 		LLGP::Vector2<float> rectSize;
 		LLGP::Vector2<float> rectPos;
-		sf::Texture* rectTex;
+		sf::Texture rectTex;
 		LLGP::Vector2i spritesInTex;
 		LLGP::Vector2i RectTexSize;
 		sf::IntRect rectTexUV;

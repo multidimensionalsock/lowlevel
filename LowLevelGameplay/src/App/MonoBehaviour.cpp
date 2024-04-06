@@ -11,7 +11,7 @@ void MonoBehaviour::FixedUpdate(float fixedDeltaTime)
 	std::cout << "2";
 }
 
-void MonoBehaviour::Draw()
+void MonoBehaviour::Draw(sf::RenderWindow& win)
 {
 }
 
