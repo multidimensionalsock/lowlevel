@@ -23,7 +23,7 @@ namespace LLGP
 	public:
 		MonoBehaviour() {};
 		MonoBehaviour(GameObject* owner) : _GameObject(owner) {} //initialize
-		MonoBehaviour(GameObject* owner, SceneManager* manager);
+		//MonoBehaviour(GameObject* owner, SceneManager* manager);
 		virtual ~MonoBehaviour() {}; //deinitilize
 
 		GameObject* GetGameObject() { return _GameObject; }

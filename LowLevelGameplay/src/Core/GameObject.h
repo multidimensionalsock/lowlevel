@@ -17,8 +17,9 @@ struct Transform
 class GameObject : public Object
 {
 public:
-	GameObject();
+	//GameObject();
 	GameObject(std::string name, std::string tag) { m_Name = name; m_Tag = tag; }
+	GameObject(SceneManager* _sceneManager) { sceneManager = _sceneManager; }
 	GameObject(const GameObject&) = default;
 	Transform transform;
 	inline void SetName(std::string newName) { m_Name = newName; }
@@ -29,6 +30,8 @@ public:
 
 	inline void SetTag(std::string newTag) { m_Tag = newTag; }
 	inline bool CompareTag(std::string comp) { return m_Tag == comp;  }
+
+	SceneManager* sceneManager;
 
 	template<class T> requires isComponent<T> T* GetComponent()
 	{
@@ -43,9 +46,13 @@ public:
 		}
 		return nullptr;
 	}
-	template<class T> requires isComponent<T> void AddComponent(T* comp) 
+	template<class T> requires isComponent<T> T* AddComponent()
 	{
-		m_Components.push_back(comp);
+		{
+			T* newComp = new T(this);
+			m_Components.push_back(newComp);
+			return newComp;
+		}
 	}
 
 	template<class T> requires isComponent<T> bool RemoveComponent(T* comp)
