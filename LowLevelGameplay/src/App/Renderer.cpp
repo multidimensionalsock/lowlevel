@@ -34,6 +34,6 @@ void LLGP::Renderer::Draw(sf::RenderWindow& win)
 	objectRenderer.setTexture(&rectTex);
 	objectRenderer.setTextureRect(rectTexUV);
 	objectRenderer.setOrigin(rectSize / 2);
-	objectRenderer.setPosition(_GameObject->transform.position);
+	objectRenderer.setPosition(rectPos + _GameObject->transform.position);
 	_GameObject->sceneManager->window->draw(objectRenderer);
 }

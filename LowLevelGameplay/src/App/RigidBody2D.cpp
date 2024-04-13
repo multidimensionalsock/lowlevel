@@ -1,18 +1,21 @@
 #include "Core/RigidBody2D.h"
 #include "Core/GameObject.h"
-#define GRAVITY 9.8f //meters per second 
+#define GRAVITY 0.098f //meters per second 
 
 void LLGP::RigidBody2D::Update(float deltaTime)
 {
 	//add gravity 
-	AddForce(Vector2<float>(0, (_mass * GRAVITY)));
+	float gravity =  (_mass * GRAVITY);
+	_force.y += gravity;
+	//when up ia pressed force y needs setting to zero 
+	// for soem reason its setting x and y to force>> 
 	//update velocity 
-	_velocity = (_force / _mass) * deltaTime;
+	_velocity = (_force / _mass);
 	
 	//update position 
-	_transform->position += _velocity * deltaTime;
+	//_transform->position += _velocity * deltaTime;
 
-	std::cout << _force.y << std::endl; 
+	std::cout << _velocity.x << ", " << _velocity.y << std::endl;
 	
 }
 
