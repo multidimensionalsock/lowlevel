@@ -1,17 +1,13 @@
 #pragma once
 #include "Core/Object.h"
 #include "Core/component_concept.h"
+#include "Core/Structs.h"
 
 //#include "Core/MonoBehaviour.h"
 
 class MonoBehaviour;
 
-struct Transform 
-{
-	LLGP::Vector2<float> position;
-	LLGP::Vector2<float> rotation;
-	LLGP::Vector2<float> scale;
-};
+
 
 namespace LLGP 
 {

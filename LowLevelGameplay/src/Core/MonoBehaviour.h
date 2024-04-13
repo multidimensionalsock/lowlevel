@@ -4,8 +4,6 @@
 #include "Core/SceneManager.h"
 #include "Core/Object.h"
 
-
-
 namespace LLGP 
 {
 	class GameObject;
