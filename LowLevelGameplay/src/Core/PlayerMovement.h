@@ -18,7 +18,7 @@ namespace LLGP
 		//use inputs to affect rigidbody 
 		void Update(float deltaTime) override; // called every frame
 		void FixedUpdate(float fixedDeltaTime) override;
-		float playerSpeed = 2.0f;
+		float playerSpeed = 10.0f;
 
 	private:
 		bool movingLeft = false; 

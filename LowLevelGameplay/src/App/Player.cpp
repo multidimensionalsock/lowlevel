@@ -10,7 +10,7 @@ void LLGP::Player::Start()
 	SetName("PlayerGameObject");
 	AddComponent<Renderer>();
 	RigidBody2D* rb = AddComponent<LLGP::RigidBody2D>();
-	rb->SetMass(0.1f);
+	rb->SetMass(1.f);
 	rb->SetTransform(&transform);
 	AddComponent<PlayerMovement>();
 

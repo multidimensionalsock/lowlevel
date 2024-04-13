@@ -4,24 +4,11 @@
 
 void LLGP::RigidBody2D::Update(float deltaTime)
 {
-	//add gravity 
-	float gravity =  (_mass * GRAVITY);
-	_force.y += gravity;
-	//when up ia pressed force y needs setting to zero 
-	// for soem reason its setting x and y to force>> 
-	//update velocity 
-	_velocity = (_force / _mass);
 	
-	//update position 
-	//_transform->position += _velocity * deltaTime;
-
-	//std::cout << _velocity.x << ", " << _velocity.y << std::endl;
 	
 }
 
-void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
-{
-}
+
 
 LLGP::RigidBody2D::RigidBody2D(GameObject* owner)
 {

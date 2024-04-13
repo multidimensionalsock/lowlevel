@@ -29,8 +29,10 @@ void LLGP::InputHandling::PollInputs()
 		rightPressed = false;
 		BroadcastRight(false);
 	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) 
 	{
+
 		if (upPressed == false) {
 			upPressed = true;
 			BroadcastUp(true); 
@@ -38,7 +40,10 @@ void LLGP::InputHandling::PollInputs()
 	}
 	else 
 	{
-		upPressed = false;
-		BroadcastUp(false);
+		if (upPressed = true) 
+		{
+			upPressed = false;
+			BroadcastUp(false);
+		}
 	}
 }

@@ -17,22 +17,22 @@ LLGP::PlayerMovement::PlayerMovement(GameObject* owner)
 
 void LLGP::PlayerMovement::Update(float deltaTime)
 {
-	inputHandler->PollInputs();
+	
 }
 
 void LLGP::PlayerMovement::FixedUpdate(float fixedDeltaTime)
 {
+	inputHandler->PollInputs();
 	if (movingUp) 
 	{
-		std::cout << "moving up" << std::endl;
-		rigidBody->AddForce(Vector2<float>(0, -playerSpeed));
+		rigidBody->AddForce(Vector2<float>::up * playerSpeed);
 	}
 	if (movingLeft) 
 	{
-		std::cout << "moving left" << std::endl;
+		rigidBody->AddForce(Vector2<float>::left * playerSpeed);
 	}
 	if (movingRight) 
 	{
-		std::cout << "moving right " << std::endl;
+		rigidBody->AddForce(Vector2<float>::right * playerSpeed);
 	}
 }

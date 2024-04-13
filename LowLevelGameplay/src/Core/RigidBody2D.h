@@ -10,13 +10,25 @@ namespace LLGP
 	class RigidBody2D : public MonoBehaviour
 	{
 	private:
-		float _mass;
+		float _mass = 1.0f;
 		Vector2<float> _velocity;
 		Vector2<float> _force;
 		Transform* _transform; 
 
 		void Update(float deltaTime) override; // called every frame
-		void FixedUpdate(float fixedDeltaTime) override;
+		void FixedUpdate(float fixedDeltaTime)
+		{
+			
+			float gravity = (_mass * 0.0098f);
+			_force = _force * gravity;
+			_force = Vector2<float>(_force.x * 1, _force.y * -1);
+			
+			_velocity = (_force / _mass);
+			_transform->position.y += gravity;
+			//std::cout <<_transform->position.x << ", " << _transform->position.y << std::endl;
+
+			_transform->position += _velocity * fixedDeltaTime;
+		}
 
 	public: 
 		RigidBody2D(GameObject* owner);
@@ -40,6 +52,7 @@ namespace LLGP
 		void AddForce(Vector2<float> force)
 		{
 			_force += force;
+			std::cout << _force.x << ", " << _force.y << std::endl;
 		}
 
 		
