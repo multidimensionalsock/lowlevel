@@ -1,6 +1,6 @@
 #include "Core/InputHandling.h"
 
-void InputHandling::PollInputs()
+void LLGP::InputHandling::PollInputs()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) 
 	{
@@ -17,6 +17,7 @@ void InputHandling::PollInputs()
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) 
 	{
+		std::cout << "d pressed" << std::endl;
 		if (rightPressed != true) 
 		{
 			rightPressed = true;

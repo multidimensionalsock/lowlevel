@@ -1,23 +1,29 @@
 #pragma once
 #include "Core/Event.h"
 #include <SFML/Graphics.hpp>
+#include "Core/MonoBehaviour.h"
 
-class InputHandling
+namespace LLGP 
 {
-public:
-	LLGP::Event<bool> Left;
-	LLGP::Event<bool> Right;
-	LLGP::Event<bool> Up;
+	class InputHandling
+	{
+	public:
+		InputHandling() {};
 
-	void BroadcastLeft(bool arg) { Left(arg); }
-	void BroadcastRight(bool arg) { Right(arg); }
-	void BroadcastUp(bool arg) { Up(arg); }
+		LLGP::Event<bool> Left;
+		LLGP::Event<bool> Right;
+		LLGP::Event<bool> Up;
 
-	void PollInputs();
+		void BroadcastLeft(bool arg) { Left(arg); }
+		void BroadcastRight(bool arg) { Right(arg); }
+		void BroadcastUp(bool arg) { Up(arg); }
 
-private:
-	bool leftPressed = false;
-	bool rightPressed = false;
-	bool upPressed = false;
-};
+		void PollInputs();
+
+	private:
+		bool leftPressed = false;
+		bool rightPressed = false;
+		bool upPressed = false;
+	};
+}
 

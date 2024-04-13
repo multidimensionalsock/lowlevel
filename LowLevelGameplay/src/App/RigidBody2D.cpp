@@ -15,7 +15,7 @@ void LLGP::RigidBody2D::Update(float deltaTime)
 	//update position 
 	//_transform->position += _velocity * deltaTime;
 
-	std::cout << _velocity.x << ", " << _velocity.y << std::endl;
+	//std::cout << _velocity.x << ", " << _velocity.y << std::endl;
 	
 }
 

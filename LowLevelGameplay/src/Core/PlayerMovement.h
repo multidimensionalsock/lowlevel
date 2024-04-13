@@ -1,10 +1,11 @@
 #pragma once 
 #include "Core/MonoBehaviour.h"
 #include "Core/InputHandling.h"
+#include "Core/RigidBody2D.h"
 
 namespace LLGP 
 {
-	class PlayerMovement : MonoBehaviour 
+	class PlayerMovement : public MonoBehaviour 
 	{
 	public:
 		PlayerMovement(GameObject* owner);
@@ -17,12 +18,14 @@ namespace LLGP
 		//use inputs to affect rigidbody 
 		void Update(float deltaTime) override; // called every frame
 		void FixedUpdate(float fixedDeltaTime) override;
+		float playerSpeed = 2.0f;
 
 	private:
-		bool movingLeft; 
-		bool movingRight; 
-		bool movingUp;
+		bool movingLeft = false; 
+		bool movingRight = false; 
+		bool movingUp = false;
 		
 		InputHandling* inputHandler; 
+		RigidBody2D* rigidBody;
 	};
 }

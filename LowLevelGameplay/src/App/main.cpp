@@ -15,7 +15,7 @@
 
 		sf::RenderWindow window(sf::VideoMode(1800, 900), "SFML Works!"); //original joust resolution
 
-		InputHandling* input = new InputHandling(); //tracks inputs
+		//InputHandling* input = new InputHandling(); //tracks inputs
 		SceneManager* sceneManager = new SceneManager();
 		sceneManager->window = &window;
 		
@@ -51,7 +51,7 @@
 			}
 
 			//poll for inputs for mono behaviour to use 
-			input->PollInputs();
+			//input->PollInputs();
 			sceneManager->CallUpdate(deltaTime);
 			
 			window.clear();
