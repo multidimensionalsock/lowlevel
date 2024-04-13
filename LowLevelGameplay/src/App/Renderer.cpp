@@ -14,11 +14,6 @@ LLGP::Renderer::Renderer(GameObject* owner)
 	spritesInTex = LLGP::Vector2i(14, 9);
 	RectTexSize = LLGP::Vector2i(rectTex.getSize().x, rectTex.getSize().y);
 	sf::IntRect rectTexUV(0, (RectTexSize.y / spritesInTex.y) * 5, RectTexSize.x / spritesInTex.x, RectTexSize.y / spritesInTex.y);
-	
-
-	
-	
-
 }
 
 void LLGP::Renderer::Update(float deltaTime)
