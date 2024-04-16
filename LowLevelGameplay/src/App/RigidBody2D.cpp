@@ -1,14 +1,16 @@
 #include "Core/RigidBody2D.h"
 #include "Core/GameObject.h"
-#define GRAVITY 0.196f //meters per second 
+#define GRAVITY 0.0196f //meters per second 
 
 void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 {
-	float gravity = (_mass * GRAVITY);
+	float gravity = GRAVITY;
 	_force.y += gravity;
 	_velocity = (_force / _mass) * fixedDeltaTime;
 
 	_transform->position.y += gravity;
+	_transform->position += _force;
+	ClearForce();
 
 	//need to add a drag force to slow it in some place but LATER ISSUES
 }
