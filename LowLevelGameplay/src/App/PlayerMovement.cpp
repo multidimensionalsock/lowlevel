@@ -32,14 +32,14 @@ void LLGP::PlayerMovement::FixedUpdate(float fixedDeltaTime)
 	}
 	if (movingLeft) 
 	{
-		//_GameObject->transform.position.x -= 1;
-		rigidBody->AddForce(Vector2<float>(-1.f, 0.f));
+		_GameObject->transform.position.x -= 1;
+		//rigidBody->AddForce(Vector2<float>::left * playerSpeed);
 		//rigidBody->AddForce(Vector2<float>::left * playerSpeed);
 	}
 	if (movingRight) 
 	{
-		//_GameObject->transform.position.x += 1;
-		rigidBody->AddForce(Vector2<float>(1.f, 0.f));
+		_GameObject->transform.position.x += 1;
+		//rigidBody->AddForce(Vector2<float>::right * playerSpeed);
 		//rigidBody->AddForce(Vector2<float>::right * playerSpeed);
 	}
 }

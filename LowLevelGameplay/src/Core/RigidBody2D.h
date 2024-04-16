@@ -31,7 +31,7 @@ namespace LLGP
 
 		void ClearForce()
 		{
-			_force = Vector2<float>::zero;
+			_force = Vector2<float>(0,0);
 		}
 
 		void SetForce(Vector2<float> force)
@@ -41,7 +41,8 @@ namespace LLGP
 
 		void AddForce(Vector2<float> force)
 		{
-			_force += force;
+			_force.x += force.x;
+			_force.y += force.y;
 		}
 	};
 }

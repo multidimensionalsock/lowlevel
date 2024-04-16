@@ -17,7 +17,6 @@ void LLGP::InputHandling::PollInputs()
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) 
 	{
-		std::cout << "d pressed" << std::endl;
 		if (rightPressed != true) 
 		{
 			rightPressed = true;
