@@ -1,0 +1,5 @@
+things to do:
+transform component
+rigidbody component 
+collision component 
+rendering component 
