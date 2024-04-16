@@ -14,6 +14,7 @@ LLGP::Renderer::Renderer(GameObject* owner)
 	//spritesInTex = LLGP::Vector2i(14, 9);
 	//RectTexSize = LLGP::Vector2i(rectTex.getSize().x, rectTex.getSize().y);
 	//sf::IntRect rectTexUV(0, (RectTexSize.y / spritesInTex.y) * 5, RectTexSize.x / spritesInTex.x, RectTexSize.y / spritesInTex.y);
+	objectRenderer = sf::RectangleShape(rectSize);
 }
 
 void LLGP::Renderer::Update(float deltaTime)
@@ -30,11 +31,9 @@ void LLGP::Renderer::FixedUpdate(float fixedDeltaTime)
 
 void LLGP::Renderer::Draw(sf::RenderWindow& win)
 {
-	objectRenderer = sf::RectangleShape(rectSize);
 	//objectRenderer.setTexture(&rectTex);
 	//objectRenderer.setTextureRect(rectTexUV);
-	objectRenderer.setOrigin(rectSize / 2);
+	//objectRenderer.setOrigin(rectSize / 2);
 	objectRenderer.setPosition(_GameObject->transform.position);
-	//_GameObject->sceneManager->window->clear();
 	_GameObject->sceneManager->window->draw(objectRenderer);
 }

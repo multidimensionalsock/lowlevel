@@ -15,7 +15,7 @@ namespace LLGP
 		Vector2<float> _force;
 		Transform* _transform; 
 
-		void Update(float deltaTime) override; // called every frame
+		//void Update(float deltaTime) override; // called every frame
 		void FixedUpdate(float fixedDeltaTime);
 		
 
@@ -42,9 +42,6 @@ namespace LLGP
 		void AddForce(Vector2<float> force)
 		{
 			_force += force;
-			std::cout << _force.x << ", " << _force.y << std::endl;
 		}
-
-		
 	};
 }
