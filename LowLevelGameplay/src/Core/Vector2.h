@@ -98,10 +98,16 @@ namespace LLGP
 	//to do:
 	//make /= and / versions 
 	template<typename T, typename U> requires arithmetic<T> and arithmetic<U>
-	Vector2<T>& operator /= (Vector2<T> v, const U a) { v.x /= a; v.y /= a; return v; }
+	Vector2<T>& operator /= (Vector2<T>& v, const U a) { v.x / a; v.y / a; return v; }
 
 	template<typename T, typename U> requires arithmetic<T> and arithmetic<U>
-	Vector2<T> operator / (Vector2<T> v, const U a) { return v /= a; }
+	Vector2<T> operator / (Vector2<T> v, const U a) 
+	{ 
+		v.x / a;
+		v.y / a;
+
+		return v; 
+	}
 
 	template<typename T> requires arithmetic<T>
 	inline bool operator == (Vector2<T>& lhs, const Vector2<T>& rhs) { Vector2<T> dist = lhs - rhs; float mag = dist.x * dist.x + dist.y * dist.y; return mag < 9.99999944E-11f; }

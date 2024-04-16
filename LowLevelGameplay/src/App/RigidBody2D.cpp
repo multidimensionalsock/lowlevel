@@ -12,8 +12,6 @@ void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 	//need to add a drag force to slow it in some place but LATER ISSUES
 }
 
-
-
 LLGP::RigidBody2D::RigidBody2D(GameObject* owner)
 {
 	_GameObject = owner;
