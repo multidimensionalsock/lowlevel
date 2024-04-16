@@ -25,14 +25,17 @@ void LLGP::PlayerMovement::FixedUpdate(float fixedDeltaTime)
 	inputHandler->PollInputs();
 	if (movingUp) 
 	{
-		rigidBody->AddForce(Vector2<float>::up * playerSpeed);
+		_GameObject->transform.position.y -= 1;
+		//rigidBody->AddForce(Vector2<float>::up * playerSpeed);
 	}
 	if (movingLeft) 
 	{
-		rigidBody->AddForce(Vector2<float>::left * playerSpeed);
+		_GameObject->transform.position.x -= 1;
+		//rigidBody->AddForce(Vector2<float>::left * playerSpeed);
 	}
 	if (movingRight) 
 	{
-		rigidBody->AddForce(Vector2<float>::right * playerSpeed);
+		_GameObject->transform.position.x += 1;
+		//rigidBody->AddForce(Vector2<float>::right * playerSpeed);
 	}
 }
