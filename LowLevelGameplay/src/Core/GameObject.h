@@ -35,7 +35,7 @@ namespace LLGP
 			T* component;
 			for (int i = 0; i < m_Components.size(); i++)
 			{
-				component = static_cast<T*>(m_Components[i]);
+				component = dynamic_cast<T*>(m_Components[i]);
 				if (component != nullptr)
 				{
 					return component;
@@ -58,7 +58,7 @@ namespace LLGP
 			T* component;
 			for (int i = 0; i < m_Components.size(); i++)
 			{
-				component = static_cast<T*>(m_Components[i]);
+				component = dynamic_cast<T*>(m_Components[i]);
 				if (component != nullptr)
 				{
 					m_Components.erase(m_Components.begin() + i);

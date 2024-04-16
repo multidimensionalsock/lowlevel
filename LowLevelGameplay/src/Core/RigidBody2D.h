@@ -15,20 +15,9 @@ namespace LLGP
 		Vector2<float> _force;
 		Transform* _transform; 
 
-		void Update(float deltaTime) override; // called every frame
-		void FixedUpdate(float fixedDeltaTime)
-		{
-			
-			float gravity = (_mass * 0.0098f);
-			_force = _force * gravity;
-			_force = Vector2<float>(_force.x * 1, _force.y * -1);
-			
-			_velocity = (_force / _mass);
-			_transform->position.y += gravity;
-			//std::cout <<_transform->position.x << ", " << _transform->position.y << std::endl;
-
-			_transform->position += _velocity * fixedDeltaTime;
-		}
+		//void Update(float deltaTime) override; // called every frame
+		void FixedUpdate(float fixedDeltaTime);
+		
 
 	public: 
 		RigidBody2D(GameObject* owner);
@@ -37,11 +26,12 @@ namespace LLGP
 		Vector2<float> GetVelocity() { return _velocity; }
 
 		float GetMass() { return _mass; }
+
 		void SetMass(float mass) { _mass = mass; }
 
 		void ClearForce()
 		{
-			_force = Vector2<float>::zero;
+			_force = Vector2<float>(0,0);
 		}
 
 		void SetForce(Vector2<float> force)
@@ -51,10 +41,8 @@ namespace LLGP
 
 		void AddForce(Vector2<float> force)
 		{
-			_force += force;
-			std::cout << _force.x << ", " << _force.y << std::endl;
+			_force.x += force.x;
+			_force.y += force.y;
 		}
-
-		
 	};
 }

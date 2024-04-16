@@ -15,11 +15,13 @@ namespace LLGP
 		void FixedUpdate(float fixedDeltaTime) override;
 		void Draw(sf::RenderWindow& win) override;
 
+		LLGP::Vector2<float> rectSize;
+
 		
 
 	protected: 
 		LLGP::Vector2<float> position;
-		LLGP::Vector2<float> rectSize;
+		
 		LLGP::Vector2<float> rectPos;
 		sf::Texture rectTex;
 		LLGP::Vector2i spritesInTex;
