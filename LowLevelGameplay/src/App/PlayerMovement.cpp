@@ -25,7 +25,8 @@ void LLGP::PlayerMovement::FixedUpdate(float fixedDeltaTime)
 	inputHandler->PollInputs();
 	if (movingUp) 
 	{
-		rigidBody->AddForce(Vector2<float>(0, -1));
+		rigidBody->AddForce(Vector2<float>(0, -100));
+		movingUp = false;
 	}
 	if (movingLeft) 
 	{

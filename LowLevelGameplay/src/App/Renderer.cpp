@@ -1,14 +1,14 @@
 #include "Core/Renderer.h"
 #include "Core/GameObject.h"
 
-LLGP::Renderer::Renderer(GameObject* owner)
+LLGP::Renderer::Renderer(GameObject* owner) 
 {
 	_GameObject = owner;
 	owner->sceneManager->Update += std::bind(&Renderer::Update, this, std::placeholders::_1);
 	owner->sceneManager->FixedUpdate += std::bind(&Renderer::FixedUpdate, this, std::placeholders::_1);
 	owner->sceneManager->Draw += std::bind(&Renderer::Draw, this, std::placeholders::_1);
 
-	rectSize = LLGP::Vector2<float>::one * 100;
+	rectSize = LLGP::Vector2<float>::one * 40;
 	rectPos = LLGP::Vector2<float>(900, 450);
 	//rectTex.loadFromFile("Textures/joustsprites.jpg"); //cant get it for some reason
 	//spritesInTex = LLGP::Vector2i(14, 9);
