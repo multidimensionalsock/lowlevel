@@ -42,10 +42,9 @@
 			while (timeSincePhysicsStep > FIXEDFRAMERATE) 
 			{
 				//run fixed update on components 
-				//need to work out a fixed delta to use here
 				sceneManager->CallFixedUpdate(timeSincePhysicsStep - FIXEDFRAMERATE); //fixed delta time
-				//step the physics
 				//collect collision info
+				sceneManager->CheckCollisions();
 				//dispatch collisions
 				timeSincePhysicsStep -= FIXEDFRAMERATE;
 			}

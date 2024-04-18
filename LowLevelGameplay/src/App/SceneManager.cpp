@@ -34,4 +34,27 @@ void LLGP::SceneManager::CheckCollisions()
 {
 	//go throught the collider list and check if theyre colliding 
 	//tell the object the collisions status 
+	for (int i = 0; i < _SceneColliders.size(); i++)
+	{
+		for (int j = 0; j < _SceneColliders.size(); j++)
+		{
+			if (_SceneColliders[i]->type == AABB && _SceneColliders[i]->type == AABB)
+			{
+				_SceneColliders[i]->AABBAABBCollision(static_cast<AABBCollider*>(_SceneColliders[i]), static_cast<AABBCollider*>(_SceneColliders[j]));
+			}
+			else if (_SceneColliders[i]->type == Circle && _SceneColliders[i]->type == AABB)
+			{
+				_SceneColliders[i]->CircleAABBCollision(static_cast<CircleCollider*>(_SceneColliders[i]), static_cast<AABBCollider*>(_SceneColliders[j]));
+			}
+			else if (_SceneColliders[i]->type == AABB && _SceneColliders[i]->type == Circle)
+			{
+				_SceneColliders[i]->CircleAABBCollision(static_cast<CircleCollider*>(_SceneColliders[j]), static_cast<AABBCollider*>(_SceneColliders[i]));
+			}
+			else 
+			{
+				_SceneColliders[i]->CircleCircleCollision(static_cast<CircleCollider*>(_SceneColliders[i]), static_cast<CircleCollider*>(_SceneColliders[j]));
+
+			}
+		}
+	}
 }

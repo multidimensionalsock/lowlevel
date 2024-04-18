@@ -3,8 +3,6 @@
 #include "Core/Renderer.h"
 #include "Core/ColliderTypes.h"
 
-
-
 bool LLGP::Collision::CircleCircleCollision(CircleCollider* circle1, CircleCollider* circle2)
 {
 	Vector2<float> vec = Vector2<float>((circle1->position.x - circle2->position.x),
