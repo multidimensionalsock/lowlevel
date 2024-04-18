@@ -16,7 +16,7 @@
 		sf::RenderWindow window(sf::VideoMode(1800, 900), "SFML Works!"); //original joust resolution
 
 		//InputHandling* input = new InputHandling(); //tracks inputs
-		SceneManager* sceneManager = new SceneManager();
+		LLGP::SceneManager* sceneManager = new LLGP::SceneManager();
 		sceneManager->window = &window;
 		
 

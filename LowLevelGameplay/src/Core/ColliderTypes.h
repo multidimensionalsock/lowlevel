@@ -1,6 +1,7 @@
 #pragma once
 #include "Core/Collision.h"
 
+
 namespace LLGP
 {
 	class AABBCollider : public Collision
@@ -25,5 +26,7 @@ namespace LLGP
 		bool moveable;
 		float radius;
 		Vector2<float> position;
+
+		void Update(float deltaTime) override;
 	};
 }

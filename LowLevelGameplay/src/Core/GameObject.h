@@ -28,6 +28,8 @@ namespace LLGP
 		inline void SetTag(std::string newTag) { m_Tag = newTag; }
 		inline bool CompareTag(std::string comp) { return m_Tag == comp; }
 
+		void Colliding(bool isColliding, GameObject* other);
+
 		SceneManager* sceneManager;
 
 		template<class T> requires isComponent<T> T* GetComponent()
@@ -73,6 +75,7 @@ namespace LLGP
 		bool m_Active;
 		std::string m_Tag;
 		std::vector<LLGP::MonoBehaviour*> m_Components;
+		bool _colliding;
 
 	public:
 		inline bool operator==(const GameObject& other) { return this->uuid == other.uuid; }

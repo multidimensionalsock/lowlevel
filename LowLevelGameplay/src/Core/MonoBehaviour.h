@@ -10,10 +10,6 @@ namespace LLGP
 
 	class MonoBehaviour : public Object
 	{
-	public:
-
-
-
 	protected:
 		
 
@@ -35,6 +31,10 @@ namespace LLGP
 		virtual void FixedUpdate(float fixedDeltaTime); //called 50 times a second
 		virtual void Draw(sf::RenderWindow& win); //handles drawing to screen, once a frame
 		virtual void initMesh(sf::Texture* texture, LLGP::Vector2i rectTexSize);
+
+		virtual void OnCollisionEnter(GameObject* other) {};
+		virtual void OnCollisionExit() {};
+		virtual void OnCollisionStay(GameObject* other) {};
 		
 
 	};
