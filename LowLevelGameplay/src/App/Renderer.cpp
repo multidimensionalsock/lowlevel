@@ -10,9 +10,9 @@ LLGP::Renderer::Renderer(GameObject* owner)
 
 	rectSize = LLGP::Vector2<float>::one * 40;
 	rectPos = LLGP::Vector2<float>(900, 450);
-	//rectTex.loadFromFile("Textures/joustsprites.jpg"); //cant get it for some reason
+	rectTex.loadFromFile("Textures/sprite.png"); 
 	//spritesInTex = LLGP::Vector2i(14, 9);
-	//RectTexSize = LLGP::Vector2i(rectTex.getSize().x, rectTex.getSize().y);
+	RectTexSize = LLGP::Vector2i(rectTex.getSize().x, rectTex.getSize().y);
 	//sf::IntRect rectTexUV(0, (RectTexSize.y / spritesInTex.y) * 5, RectTexSize.x / spritesInTex.x, RectTexSize.y / spritesInTex.y);
 	objectRenderer = sf::RectangleShape(rectSize);
 }
@@ -31,7 +31,7 @@ void LLGP::Renderer::FixedUpdate(float fixedDeltaTime)
 
 void LLGP::Renderer::Draw(sf::RenderWindow& win)
 {
-	//objectRenderer.setTexture(&rectTex);
+	objectRenderer.setTexture(&rectTex);
 	//objectRenderer.setTextureRect(rectTexUV);
 	//objectRenderer.setOrigin(rectSize / 2);
 	objectRenderer.setPosition(_GameObject->transform.position);
