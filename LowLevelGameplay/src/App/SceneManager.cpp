@@ -4,11 +4,13 @@
 #include "Core/Renderer.h"
 #include "Core/Player.h"
 #include "Core/ColliderTypes.h"
+#include "Core/Textures.h"
 
 LLGP::SceneManager::SceneManager()
 {
 	std::cout << "Scene Manager Created";
 	LLGP::Player* testObj = new LLGP::Player(this);
+	textureLoad = Textures();
 }
 
 LLGP::SceneManager::~SceneManager()

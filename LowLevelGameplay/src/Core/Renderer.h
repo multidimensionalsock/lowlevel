@@ -1,7 +1,6 @@
 #pragma once
 #include "Core/MonoBehaviour.h"
-#include <SFML/Graphics.hpp>
-#include <SFML/OpenGL.hpp>
+
 
 namespace LLGP
 {

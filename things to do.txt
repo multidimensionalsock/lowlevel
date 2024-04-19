@@ -1,5 +1,16 @@
 things to do:
-transform component
-rigidbody component 
-collision component 
-rendering component 
+sprite collection so its only loaded in once
+make renderer usable for multiple things
+working collisions
+player movement 
+bounder enemy
+hunter enemy
+shadow lord
+pterdactyl enemy
+lava troll enemy 
+level on screens
+scoring and lives system 
+respawn 
+
+
+FORUM POSTS DO THEM DO THEM DO THEM DO THEM

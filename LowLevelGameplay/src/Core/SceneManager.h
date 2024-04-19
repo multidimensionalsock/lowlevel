@@ -2,6 +2,7 @@
 #include "Core/Event.h"
 #include "Core/Object.h"
 #include <vector>
+#include "Core/Textures.h"
 
 
 
@@ -17,6 +18,7 @@ namespace LLGP
 		LLGP::Event<float> FixedUpdate;
 		LLGP::Event<sf::RenderWindow&> Draw;
 		sf::RenderWindow* window;
+		Textures textureLoad;
 
 		void CallUpdate(float delta) { Update(delta); };
 		void CallFixedUpdate(float delta) { FixedUpdate(delta); }

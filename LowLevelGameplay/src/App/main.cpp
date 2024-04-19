@@ -4,6 +4,7 @@
 #include "Core/MonoBehaviour.h"
 #include "Core/InputHandling.h"
 #include "Core/SceneManager.h"
+#include "Core/Textures.h"
 
 #define FIXEDFRAMERATE 0.0002f //50 fps i think???
 
