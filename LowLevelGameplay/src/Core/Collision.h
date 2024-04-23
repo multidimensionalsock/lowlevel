@@ -24,6 +24,7 @@ namespace LLGP
 		bool CircleAABBCollision(CircleCollider* circle, AABBCollider* box);
 		bool CircleAABBCollision(AABBCollider* box, CircleCollider* circle);
 
+
 	private:
 
 	};

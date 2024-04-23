@@ -5,12 +5,14 @@
 #include "Core/Player.h"
 #include "Core/ColliderTypes.h"
 #include "Core/Textures.h"
+#include "Core/LevelLoader.h"
 
 LLGP::SceneManager::SceneManager()
 {
 	std::cout << "Scene Manager Created";
 	LLGP::Player* testObj = new LLGP::Player(this);
 	textureLoad = Textures();
+	LevelLoader* level = new LevelLoader(this);
 }
 
 LLGP::SceneManager::~SceneManager()
