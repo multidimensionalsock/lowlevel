@@ -11,15 +11,20 @@ LLGP::Renderer::Renderer(GameObject* owner)
 	owner->sceneManager->Draw += std::bind(&Renderer::Draw, this, std::placeholders::_1);
 
 	
+	
+	
+}
+
+void LLGP::Renderer::SetTexture(TextureDetails renderDetails)
+{
 	rectPos = LLGP::Vector2<float>(900, 450);
-	TextureDetails renderDetails = owner->sceneManager->textureLoad.player1Bird;
-	rectTex = renderDetails.texture; 
+	//TextureDetails renderDetails = owner->sceneManager->textureLoad.player1Bird;
+	rectTex = renderDetails.texture;
 	spritesInTex = renderDetails.spritesInTexture;
 	RectTexSize = renderDetails.RectTexSize;
 	rectTexUV = renderDetails.rectTexUV;
-	rectSize = LLGP::Vector2<float>(renderDetails.RectTexSize.y, renderDetails.RectTexSize.y); // this causeing render issues> 
+	rectSize = LLGP::Vector2<float>(renderDetails.RectTexSize.y, renderDetails.RectTexSize.y); 
 	objectRenderer = sf::RectangleShape(rectSize);
-	
 }
 
 void LLGP::Renderer::Update(float deltaTime)
@@ -42,3 +47,5 @@ void LLGP::Renderer::Draw(sf::RenderWindow& win)
 	objectRenderer.setPosition(_GameObject->transform.position);
 	_GameObject->sceneManager->window->draw(objectRenderer);
 }
+
+

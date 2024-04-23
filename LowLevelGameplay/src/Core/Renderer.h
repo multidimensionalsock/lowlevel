@@ -13,10 +13,9 @@ namespace LLGP
 		void Update(float deltaTime) override; // called every frame
 		void FixedUpdate(float fixedDeltaTime) override;
 		void Draw(sf::RenderWindow& win) override;
+		void SetTexture(TextureDetails renderDetails);
 
 		LLGP::Vector2<float> rectSize;
-
-		
 
 	protected: 
 		LLGP::Vector2<float> position;
