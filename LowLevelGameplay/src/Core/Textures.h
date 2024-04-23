@@ -27,7 +27,7 @@ namespace LLGP
 
 		Textures()
 		{
-			enemyBird = loadTextureDetails("Textures/enemybirds 1.png", LLGP::Vector2i(1, 14));
+			enemyBird = loadTextureDetails("Textures/enemybirds 1.png", LLGP::Vector2i(14, 1));
 			//fire = loadTextureDetails("Textures/fire 1.png");
 		}
 
@@ -39,8 +39,9 @@ namespace LLGP
 			details.texture.loadFromFile(path);
 			details.spritesInTexture = spritesInTexture;
 			details.RectTexSize = LLGP::Vector2i(details.texture.getSize().x, details.texture.getSize().y);
-			details.rectTexUV = sf::IntRect(0, (details.RectTexSize.y / details.spritesInTexture.y) * 5, details.RectTexSize.x /
-				details.spritesInTexture.x, details.RectTexSize.y / details.spritesInTexture.y);
+			int top = details.RectTexSize.x / spritesInTexture.x;
+			int side = details.RectTexSize.y / spritesInTexture.y;
+			details.rectTexUV = sf::IntRect(0, details.RectTexSize.y /4, top, side);
 			return details;
 		}
 	};
