@@ -14,7 +14,7 @@
 	{
 		float timeSincePhysicsStep = 0;
 
-		sf::RenderWindow window(sf::VideoMode(1800, 900), "SFML Works!"); //original joust resolution
+		sf::RenderWindow window(sf::VideoMode(292 * 2, 240 * 2), "SFML Works!"); //original joust resolution
 
 		//InputHandling* input = new InputHandling(); //tracks inputs
 		LLGP::SceneManager* sceneManager = new LLGP::SceneManager();
