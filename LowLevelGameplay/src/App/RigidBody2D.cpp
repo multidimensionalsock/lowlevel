@@ -1,6 +1,6 @@
 #include "Core/RigidBody2D.h"
 #include "Core/GameObject.h"
-#define GRAVITY 0.0196f //meters per second 
+#define GRAVITY 0.01f //meters per second 
 
 void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 {
