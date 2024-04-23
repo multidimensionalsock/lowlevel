@@ -1,6 +1,7 @@
 #include "Core/Renderer.h"
 #include "Core/GameObject.h"
 #include "Core/Textures.h"
+#include  "Core/Vector2.h"
 
 LLGP::Renderer::Renderer(GameObject* owner) 
 {
@@ -11,12 +12,12 @@ LLGP::Renderer::Renderer(GameObject* owner)
 
 	
 	rectPos = LLGP::Vector2<float>(900, 450);
-	TextureDetails renderDetails = owner->sceneManager->textureLoad.sparkle;
+	TextureDetails renderDetails = owner->sceneManager->textureLoad.player1Bird;
 	rectTex = renderDetails.texture; 
 	spritesInTex = renderDetails.spritesInTexture;
 	RectTexSize = renderDetails.RectTexSize;
 	rectTexUV = renderDetails.rectTexUV;
-	rectSize = LLGP::Vector2<float>::one * 40;
+	rectSize = LLGP::Vector2<float>(renderDetails.RectTexSize.y, renderDetails.RectTexSize.y); // this causeing render issues> 
 	objectRenderer = sf::RectangleShape(rectSize);
 	
 }
