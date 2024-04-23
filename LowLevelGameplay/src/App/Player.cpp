@@ -28,6 +28,7 @@ void LLGP::Player::Start()
 	collider->moveable = true;
 	collider->width = sceneManager->textureLoad.player1Bird.RectTexSize.y;
 	collider->height = sceneManager->textureLoad.player1Bird.RectTexSize.x;
+	sceneManager->AddCollider(collider);
 
 	
 

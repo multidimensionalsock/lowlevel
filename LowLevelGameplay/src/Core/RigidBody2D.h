@@ -17,9 +17,13 @@ namespace LLGP
 
 		//void Update(float deltaTime) override; // called every frame
 		void FixedUpdate(float fixedDeltaTime);
+		bool colliding = false; 
 		
 
 	public: 
+
+		void OnCollisionEnter(GameObject* other) override;
+		void OnCollisionExit() override;
 		RigidBody2D(GameObject* owner);
 		void SetTransform(Transform* transform) { _transform = transform; }
 

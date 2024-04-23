@@ -4,15 +4,35 @@
 
 void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 {
-	float gravity = GRAVITY;
-	_force.y += gravity;
-	_velocity = (_force / _mass) * fixedDeltaTime;
+	if (!colliding)
+	{
+		float gravity = GRAVITY;
+		_force.y += gravity;
+		
+		//_transform->position.y += gravity;
+	}
+	
+	
+	
 
-	_transform->position.y += gravity;
+	_velocity = (_force / _mass) * fixedDeltaTime;
 	_transform->position += _force;
 	ClearForce();
 
 	//need to add a drag force to slow it in some place but LATER ISSUES
+}
+
+
+void LLGP::RigidBody2D::OnCollisionEnter(GameObject* other)
+{
+	colliding = true;
+	std::cout << colliding << std::endl;
+}
+
+void LLGP::RigidBody2D::OnCollisionExit()
+{
+	colliding = false;
+	std::cout << colliding << std::endl;
 }
 
 LLGP::RigidBody2D::RigidBody2D(GameObject* owner)
