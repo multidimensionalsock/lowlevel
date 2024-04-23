@@ -11,10 +11,11 @@ LLGP::Renderer::Renderer(GameObject* owner)
 
 	
 	rectPos = LLGP::Vector2<float>(900, 450);
-	rectTex = owner->sceneManager->textureLoad.enemyBird.texture; //loadFromFile("Textures/sprite.png"); 
-	spritesInTex = owner->sceneManager->textureLoad.enemyBird.spritesInTexture;
-	RectTexSize = owner->sceneManager->textureLoad.enemyBird.RectTexSize;
-	rectTexUV = owner->sceneManager->textureLoad.enemyBird.rectTexUV;
+	TextureDetails renderDetails = owner->sceneManager->textureLoad.sparkle;
+	rectTex = renderDetails.texture; 
+	spritesInTex = renderDetails.spritesInTexture;
+	RectTexSize = renderDetails.RectTexSize;
+	rectTexUV = renderDetails.rectTexUV;
 	rectSize = LLGP::Vector2<float>::one * 40;
 	objectRenderer = sf::RectangleShape(rectSize);
 	

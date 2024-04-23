@@ -27,9 +27,15 @@ namespace LLGP
 
 		Textures()
 		{
-			enemyBird = loadTextureDetails("Textures/enemybirds 1.png", LLGP::Vector2i(14, 1));
-			//fire = loadTextureDetails("Textures/fire 1.png");
-		}
+			enemyBird = loadTextureDetails("Textures/enemybirds 1.png", LLGP::Vector2i(14, 1)); //works 
+			fire = loadTextureDetails("Textures/fire 1.png", LLGP::Vector2i(6, 1)); //works
+			lavaTroll = loadTextureDetails("Textures/lava troll 1.png", LLGP::Vector2i(6, 1)); //works
+			humans = loadTextureDetails("Textures/men 1.png", LLGP::Vector2i(13, 1)); //works 
+			player1Bird = loadTextureDetails("Textures/Player1bird 1.png", LLGP::Vector2i(14, 1)); //head cut off
+			player2Bird = loadTextureDetails("Textures/Player2bird 1.png", LLGP::Vector2i(14, 1)); //head cut off
+			pterdactyl = loadTextureDetails("Textures/pterpdactyl 1.png", LLGP::Vector2i(14, 1)); //just a tail
+			sparkle = loadTextureDetails("Textures/sparkle 1.png", LLGP::Vector2i(3, 1));//works
+		} 
 
 	private:
 
