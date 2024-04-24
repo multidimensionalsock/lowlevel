@@ -44,6 +44,7 @@ void LLGP::SceneManager::CheckCollisions()
 		
 		for (int j = 0; j < _SceneColliders.size(); j++)
 		{
+			if (i == j) { continue; }
 			col = false;
 			if (_SceneColliders[i]->type == _SceneColliders[j]->type)
 			{
