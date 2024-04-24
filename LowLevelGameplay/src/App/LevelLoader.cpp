@@ -26,9 +26,7 @@ void LLGP::LevelLoader::AddColliders()
 	collider1->height = 16; 
 	collider1->position = Vector2<float>(0, 124);
 	sceneManager->AddCollider(collider1);
-	//Renderer* ren = AddComponent<Renderer>();
 	
-
 	//collider 2
 	//collider 3 
 	//collider 4
