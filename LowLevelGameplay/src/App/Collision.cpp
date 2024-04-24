@@ -23,10 +23,19 @@ bool LLGP::Collision::CircleCircleCollision(CircleCollider* circle1, CircleColli
 //}
 //```
 
+//if (rect1.x + (rect1.width / 2) > rect2.x &&
+//	rect1.x + (rect1.width / 2) < rect2.x + rect2.width &&
+//	rect1.y + (rect1.height / 2) > rect2.y &&
+//	rect1.y + (rect1.height / 2) < rect2.y + rect2.height) {
+//	return true;
+//}
+
 bool LLGP::Collision::AABBAABBCollision(AABBCollider* box1, AABBCollider* box2)
 {
-	if ((box1->position.x <= box2->position.x + box2->width && box1->position.x + box1->width  >= box2->position.x) &&
-		(box1->position.y - box1->height  <= box2->position.y && box1->position.y >= box2->position.y - box2->height * 2)) // top
+	if (box1->position.x < box2->position.x + box2->width &&
+		box1->position.x + box1->width > box2->position.x &&
+		box1->position.y < box2->position.y + box2->height &&
+		box1->position.y + box1->height > box2->position.y) // top
 	{
 		return true;
 	}
