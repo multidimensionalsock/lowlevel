@@ -19,6 +19,7 @@ namespace LLGP
 	public:
 		CollisionType type;
 
+
 		bool CircleCircleCollision(CircleCollider* circle1, CircleCollider* circle2);
 		bool AABBAABBCollision(AABBCollider* box1, AABBCollider* box2);
 		bool CircleAABBCollision(CircleCollider* circle, AABBCollider* box);
