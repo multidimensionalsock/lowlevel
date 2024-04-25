@@ -23,10 +23,10 @@ namespace LLGP
 
 		LLGP::Vector2<float> rectPos;
 		sf::Texture rectTex;
-		LLGP::Vector2i spritesInTex;
+		//LLGP::Vector2i spritesInTex;
 		LLGP::Vector2i RectTexSize;
 		sf::RectangleShape objectRenderer;
-		SceneManager* sceneManager;
+		//SceneManager* sceneManager;
 
 		void Draw(sf::RenderWindow& win);
 

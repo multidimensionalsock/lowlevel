@@ -12,9 +12,6 @@ void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 		//_transform->position.y += gravity;
 	}
 	
-	
-	
-
 	_velocity = (_force / _mass) * fixedDeltaTime;
 	_transform->position += _force;
 	ClearForce();
@@ -25,13 +22,19 @@ void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 
 void LLGP::RigidBody2D::OnCollisionEnter(GameObject* other)
 {
-	colliding = true;
+	if (other->GetTag() == "Floor")
+	{
+		colliding = true;
+	}
 	std::cout << colliding << std::endl;
 }
 
-void LLGP::RigidBody2D::OnCollisionExit()
+void LLGP::RigidBody2D::OnCollisionExit(GameObject* other)
 {
-	colliding = false;
+	if (other->GetTag() == "Floor")
+	{
+		colliding = false;
+	}
 	std::cout << colliding << std::endl;
 }
 

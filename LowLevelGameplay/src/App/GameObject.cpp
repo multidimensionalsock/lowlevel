@@ -2,46 +2,45 @@
 
 void LLGP::GameObject::Colliding(bool isColliding, GameObject* other)
 {
-	if (isColliding) {
+	bool currentlyCollidingWith = false;
+	int collidingwithindex = -1;
+	if (_collidingWith.size() > 0)
+	{
+		for (int i = 0; i < m_Components.size(); i++)
+		{
+			if (_collidingWith[i] = &other->uuid)
+			{
+				currentlyCollidingWith = true;
+				collidingwithindex = i;
+				break;
+			}
+		}
+	}
+	if (currentlyCollidingWith && isColliding)
+	{
+		for (int i = 0; i < m_Components.size(); i++)
+		{ 
+			m_Components[i]->OnCollisionStay(other);
+		}
+		return;
+	}
+	else if (!currentlyCollidingWith && isColliding) 
+	{
 		for (int i = 0; i < m_Components.size(); i++)
 		{
 			m_Components[i]->OnCollisionEnter(other);
 		}
-		_colliding = true;
+		_collidingWith.push_back(&other->uuid);
 	}
-	else if (!isColliding) 
+	else if (currentlyCollidingWith && !isColliding) 
 	{
 		for (int i = 0; i < m_Components.size(); i++)
 		{
-			m_Components[i]->OnCollisionExit();
+			m_Components[i]->OnCollisionExit(other);
+			//m_Components.erase(m_Components.begin() + i);
 		}
-		_colliding = false;
+		_collidingWith.erase(_collidingWith.begin() + collidingwithindex);
+		
 	}
-	//if (_colliding && isColliding) 
-	//{
-	//	for (int i = 0; i < m_Components.size(); i++)
-	//	{
-	//		m_Components[i]->OnCollisionStay(other);
-	//	}
-	//	return;
-	//}
-	///*else if (_colliding && !isColliding)
-	//{
-	//	for (int i = 0; i < m_Components.size(); i++)
-	//	{
-	//		m_Components[i]->OnCollisionExit();
-	//	}
-	//	_colliding = false;
-	//	return;
-	//}*/
-	//else if (!_colliding && isColliding)
-	//{
-	//	for (int i = 0; i < m_Components.size(); i++)
-	//	{
-	//		m_Components[i]->OnCollisionEnter(other);
-	//	}
-	//	_colliding = true;
-	//	return;
-	//}
 	
 }

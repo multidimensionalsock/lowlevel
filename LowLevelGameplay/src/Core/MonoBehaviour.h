@@ -33,7 +33,7 @@ namespace LLGP
 		virtual void initMesh(sf::Texture* texture, LLGP::Vector2i rectTexSize);
 
 		virtual void OnCollisionEnter(GameObject* other) {};
-		virtual void OnCollisionExit() {};
+		virtual void OnCollisionExit(GameObject* other) {};
 		virtual void OnCollisionStay(GameObject* other) {};
 		
 

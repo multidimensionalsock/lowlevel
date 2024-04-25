@@ -23,7 +23,7 @@ namespace LLGP
 	public: 
 
 		void OnCollisionEnter(GameObject* other) override;
-		void OnCollisionExit() override;
+		void OnCollisionExit(GameObject* other) override;
 		RigidBody2D(GameObject* owner);
 		void SetTransform(Transform* transform) { _transform = transform; }
 

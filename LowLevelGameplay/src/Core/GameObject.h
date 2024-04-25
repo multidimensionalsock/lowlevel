@@ -15,7 +15,7 @@ namespace LLGP
 	{
 	public:
 		//GameObject();
-		GameObject(std::string name, std::string tag) { m_Name = name; m_Tag = tag; }
+		//GameObject(std::string name, std::string tag) { m_Name = name; m_Tag = tag; }
 		GameObject(SceneManager* _sceneManager) { sceneManager = _sceneManager; }
 		GameObject(const GameObject&) = default;
 		Transform transform;
@@ -26,6 +26,7 @@ namespace LLGP
 		inline bool GetActive() { return m_Active; }
 
 		inline void SetTag(std::string newTag) { m_Tag = newTag; }
+		inline std::string GetTag() { return m_Tag; }
 		inline bool CompareTag(std::string comp) { return m_Tag == comp; }
 
 		void Colliding(bool isColliding, GameObject* other);
@@ -76,6 +77,8 @@ namespace LLGP
 		std::string m_Tag;
 		std::vector<LLGP::MonoBehaviour*> m_Components;
 		bool _colliding;
+
+		std::vector<UUID*> _collidingWith;
 
 	public:
 		inline bool operator==(const GameObject& other) { return this->uuid == other.uuid; }
