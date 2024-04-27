@@ -1,5 +1,6 @@
 #include "Core/RigidBody2D.h"
 #include "Core/GameObject.h"
+#include "Core/ColliderTypes.h"
 #define GRAVITY 0.01f //meters per second 
 
 void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
@@ -22,7 +23,17 @@ void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 
 void LLGP::RigidBody2D::OnCollisionEnter(GameObject* other)
 {
-	colliding = true;
+	AABBCollider* othercollider = other->GetComponent<AABBCollider>();
+	AABBCollider* collider = _GameObject->GetComponent<AABBCollider>();
+	if (othercollider != nullptr && collider != nullptr) 
+	{
+		if ( abs(othercollider->position.y - (collider->position.y + collider->height)) > 1 )
+		{
+			colliding = false;
+			return;
+		}
+	}
+	colliding = true; 
 }
 
 void LLGP::RigidBody2D::OnCollisionExit(GameObject* other)

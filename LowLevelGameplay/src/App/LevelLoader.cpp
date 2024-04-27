@@ -38,7 +38,6 @@ void LLGP::LevelLoader::AddColliders()
 	col2->position = Vector2<float>(176, 148);
 	sceneManager->AddCollider(col2);
 
-	//sf::RenderWindow window(sf::VideoMode(640, 480), "SFML Works!");
 	//collider 3 
 	GameObject* collider3 = new GameObject(sceneManager);
 	collider3->SetTag("Floor");
