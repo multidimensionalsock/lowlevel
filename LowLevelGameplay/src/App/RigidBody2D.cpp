@@ -22,20 +22,13 @@ void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 
 void LLGP::RigidBody2D::OnCollisionEnter(GameObject* other)
 {
-	if (other->GetTag() == "Floor")
-	{
-		colliding = true;
-	}
-	std::cout << colliding << std::endl;
+	colliding = true;
 }
 
 void LLGP::RigidBody2D::OnCollisionExit(GameObject* other)
 {
-	if (other->GetTag() == "Floor")
-	{
+	if (_GameObject->_collidingWith.empty())
 		colliding = false;
-	}
-	std::cout << colliding << std::endl;
 }
 
 LLGP::RigidBody2D::RigidBody2D(GameObject* owner)

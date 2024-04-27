@@ -3,19 +3,13 @@
 void LLGP::GameObject::Colliding(bool isColliding, GameObject* other)
 {
 	bool currentlyCollidingWith = false;
-	int collidingwithindex = -1;
-	if (_collidingWith.size() > 0)
-	{
-		for (int i = 0; i < m_Components.size(); i++)
+	auto collidingwithindex = std::find(_collidingWith.begin(), _collidingWith.end(), other);;
+	
+		if (collidingwithindex != _collidingWith.end())
 		{
-			if (_collidingWith[i] = &other->uuid)
-			{
-				currentlyCollidingWith = true;
-				collidingwithindex = i;
-				break;
-			}
+			currentlyCollidingWith = true;
 		}
-	}
+	
 	if (currentlyCollidingWith && isColliding)
 	{
 		for (int i = 0; i < m_Components.size(); i++)
@@ -26,21 +20,21 @@ void LLGP::GameObject::Colliding(bool isColliding, GameObject* other)
 	}
 	else if (!currentlyCollidingWith && isColliding) 
 	{
+		_collidingWith.push_back(other);
 		for (int i = 0; i < m_Components.size(); i++)
 		{
 			m_Components[i]->OnCollisionEnter(other);
 		}
-		_collidingWith.push_back(&other->uuid);
+		return;
 	}
-	else if (currentlyCollidingWith && !isColliding) 
+	else if (!isColliding && currentlyCollidingWith) 
 	{
+		_collidingWith.erase(collidingwithindex);
 		for (int i = 0; i < m_Components.size(); i++)
 		{
 			m_Components[i]->OnCollisionExit(other);
-			//m_Components.erase(m_Components.begin() + i);
 		}
-		_collidingWith.erase(_collidingWith.begin() + collidingwithindex);
-		
+		return;
 	}
 	
 }

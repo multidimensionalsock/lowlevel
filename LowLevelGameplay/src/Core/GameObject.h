@@ -71,6 +71,8 @@ namespace LLGP
 			return false;
 		};
 
+		std::vector<GameObject*> _collidingWith;
+
 	private:
 		std::string m_Name;
 		bool m_Active;
@@ -78,7 +80,7 @@ namespace LLGP
 		std::vector<LLGP::MonoBehaviour*> m_Components;
 		bool _colliding;
 
-		std::vector<UUID*> _collidingWith;
+		
 
 	public:
 		inline bool operator==(const GameObject& other) { return this->uuid == other.uuid; }
