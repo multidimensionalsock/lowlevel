@@ -4,11 +4,10 @@
 #include <vector>
 #include "Core/Textures.h"
 
-
-
 namespace LLGP
 {
 	class Collision;
+	class ScoreSystem;
 
 	//used to call events for function in monobehaviour by the main function 
 	class SceneManager : Object
@@ -33,6 +32,7 @@ namespace LLGP
 
 	private:
 		std::vector<LLGP::Collision*> _SceneColliders;
+		ScoreSystem* scoreSystem;
 
 	};
 }
