@@ -8,9 +8,12 @@ namespace LLGP
 	public: 
 		Player(SceneManager* manager) : GameObject(manager) { Start(); };
 
+		inline static Event<UUID*> LifeLost;
+		inline static Event<UUID*> DismountOtherPlayer;
+
 	protected: 
 		void Start();
 
 	};
-}
 
+}
