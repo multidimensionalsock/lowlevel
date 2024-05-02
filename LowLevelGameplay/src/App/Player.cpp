@@ -29,7 +29,4 @@ void LLGP::Player::Start()
 	collider->width = 40;
 	collider->height = 40;
 	sceneManager->AddCollider(collider);
-
-	
-
 }

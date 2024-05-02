@@ -12,23 +12,6 @@ bool LLGP::Collision::CircleCircleCollision(CircleCollider* circle1, CircleColli
 	return distance < distanceToCollide;
 }
 
-//```cpp
-//bool AABBColliderComponent::Intersects(const std::shared_ptr<AABBColliderComponent>& collider)
-//{
-//	Bounds thisBounds = GetBounds();
-//	Bounds colliderBounds = collider->GetBounds();
-//	return (thisBounds.Min.X <= colliderBounds.Max.X && thisBounds.Max.X >= colliderBounds.Min.X) &&
-//		(thisBounds.Min.Y <= colliderBounds.Max.Y && thisBounds.Max.Y >= colliderBounds.Min.Y) &&
-//		(thisBounds.Min.Z <= colliderBounds.Max.Z && thisBounds.Max.Z >= colliderBounds.Min.Z);
-//}
-//```
-
-//if (rect1.x + (rect1.width / 2) > rect2.x &&
-//	rect1.x + (rect1.width / 2) < rect2.x + rect2.width &&
-//	rect1.y + (rect1.height / 2) > rect2.y &&
-//	rect1.y + (rect1.height / 2) < rect2.y + rect2.height) {
-//	return true;
-//}
 
 bool LLGP::Collision::AABBAABBCollision(AABBCollider* box1, AABBCollider* box2)
 {

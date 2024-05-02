@@ -17,7 +17,7 @@ LLGP::SceneManager::SceneManager()
 	LLGP::Player* testObj = new LLGP::Player(this);
 	
 	LevelLoader* level = new LevelLoader(this);
-	Bounder* testEnemy = new Bounder(this);
+	//Bounder* testEnemy = new Bounder(this);
 	
 }
 
