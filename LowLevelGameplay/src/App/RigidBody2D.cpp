@@ -46,8 +46,8 @@ LLGP::RigidBody2D::RigidBody2D(GameObject* owner)
 {
 	_GameObject = owner;
 	
-	owner->sceneManager->Update += std::bind(&RigidBody2D::Update, this, std::placeholders::_1);
-	owner->sceneManager->FixedUpdate += std::bind(&RigidBody2D::FixedUpdate, this, std::placeholders::_1);
+	owner->sceneManager->Update.AddListener(this, std::bind(&RigidBody2D::Update, this, std::placeholders::_1));
+	owner->sceneManager->FixedUpdate.AddListener(this, std::bind(&RigidBody2D::FixedUpdate, this, std::placeholders::_1));
 
 	_velocity = Vector2<float>::zero;
 	_force = Vector2<float>::zero;

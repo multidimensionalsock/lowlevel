@@ -6,13 +6,13 @@ LLGP::PlayerMovement::PlayerMovement(GameObject* owner)
 {
 	_GameObject = owner; 
 
-	_GameObject->sceneManager->Update += std::bind(&PlayerMovement::Update, this, std::placeholders::_1);
-	_GameObject->sceneManager->FixedUpdate += std::bind(&PlayerMovement::FixedUpdate, this, std::placeholders::_1);
+	_GameObject->sceneManager->Update.AddListener(this, std::bind(&PlayerMovement::Update, this, std::placeholders::_1));
+	_GameObject->sceneManager->FixedUpdate.AddListener(this, std::bind(&PlayerMovement::FixedUpdate, this, std::placeholders::_1));
 	rigidBody = _GameObject->GetComponent<RigidBody2D>();
 	inputHandler = new InputHandling();
-	inputHandler->Left += std::bind(&PlayerMovement::MoveLeft, this, std::placeholders::_1);
-	inputHandler->Right += std::bind(&PlayerMovement::MoveRight, this, std::placeholders::_1);
-	inputHandler->Up += std::bind(&PlayerMovement::MoveUp, this, std::placeholders::_1);
+	inputHandler->Left.AddListener(this, std::bind(&PlayerMovement::MoveLeft, this, std::placeholders::_1));
+	inputHandler->Right.AddListener(this, std::bind(&PlayerMovement::MoveRight, this, std::placeholders::_1));
+	inputHandler->Up.AddListener(this, std::bind(&PlayerMovement::MoveUp, this, std::placeholders::_1));
 }
 
 void LLGP::PlayerMovement::Update(float deltaTime)

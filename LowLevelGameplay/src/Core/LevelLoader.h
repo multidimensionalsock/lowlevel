@@ -18,7 +18,7 @@ namespace LLGP
 			sceneManager = owner;
 			AddColliders();
 
-			sceneManager->Draw += std::bind(&LevelLoader::Draw, this, std::placeholders::_1);
+			sceneManager->Draw.AddListener(this, std::bind(&LevelLoader::Draw, this, std::placeholders::_1));
 		};
 
 		LLGP::Vector2<float> rectPos;

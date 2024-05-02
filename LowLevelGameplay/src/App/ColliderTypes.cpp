@@ -15,7 +15,7 @@ LLGP::CircleCollider::CircleCollider(GameObject* owner)
 		position = _GameObject->transform.position;
 	}
 	if (!moveable) return;
-	owner->sceneManager->Update += std::bind(&CircleCollider::Update, this, std::placeholders::_1);
+	owner->sceneManager->Update.AddListener(this, std::bind(&CircleCollider::Update, this, std::placeholders::_1));
 }
 
 void LLGP::CircleCollider::Update(float deltaTime)
@@ -35,7 +35,7 @@ LLGP::AABBCollider::AABBCollider(GameObject* owner)
 		position = _GameObject->transform.position;
 	}
 	if (!moveable) return;
-	owner->sceneManager->Update += std::bind(&AABBCollider::Update, this, std::placeholders::_1);
+	owner->sceneManager->Update.AddListener(this, std::bind(&AABBCollider::Update, this, std::placeholders::_1));
 }
 
 void LLGP::AABBCollider::Update(float deltaTime)

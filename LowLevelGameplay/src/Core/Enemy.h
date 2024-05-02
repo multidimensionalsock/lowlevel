@@ -7,6 +7,8 @@ namespace LLGP
 	class Enemy : public GameObject
 	{
 	public: 
+		Enemy(SceneManager* manager) : GameObject(manager) {}
+
 		inline static Event<UUID*> BounderDismounted;
 		inline static Event<UUID*> HunterDismounted;
 		inline static Event<UUID*> ShadowLordDismounted;

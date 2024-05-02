@@ -46,7 +46,6 @@
 				sceneManager->CallFixedUpdate(timeSincePhysicsStep - FIXEDFRAMERATE); //fixed delta time
 				//collect collision info
 				sceneManager->CheckCollisions();
-				//dispatch collisions
 				timeSincePhysicsStep -= FIXEDFRAMERATE;
 			}
 

@@ -6,19 +6,14 @@
 LLGP::Renderer::Renderer(GameObject* owner) 
 {
 	_GameObject = owner;
-	owner->sceneManager->Update += std::bind(&Renderer::Update, this, std::placeholders::_1);
-	owner->sceneManager->FixedUpdate += std::bind(&Renderer::FixedUpdate, this, std::placeholders::_1);
-	owner->sceneManager->Draw += std::bind(&Renderer::Draw, this, std::placeholders::_1);
-
-	
-	
-	
+	owner->sceneManager->Update.AddListener(this, std::bind(&Renderer::Update, this, std::placeholders::_1));
+	owner->sceneManager->FixedUpdate.AddListener(this, std::bind(&Renderer::FixedUpdate, this, std::placeholders::_1));
+	owner->sceneManager->Draw.AddListener(this, std::bind(&Renderer::Draw, this, std::placeholders::_1));
 }
 
 void LLGP::Renderer::SetTexture(TextureDetails renderDetails)
 {
 	rectPos = LLGP::Vector2<float>(900, 450);
-	//TextureDetails renderDetails = owner->sceneManager->textureLoad.player1Bird;
 	rectTex = renderDetails.texture;
 	spritesInTex = renderDetails.spritesInTexture;
 	RectTexSize = renderDetails.RectTexSize;
@@ -29,10 +24,9 @@ void LLGP::Renderer::SetTexture(TextureDetails renderDetails)
 
 void LLGP::Renderer::Update(float deltaTime)
 {
-	sf::CircleShape shape(100.f);
+	/*sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
-	_GameObject->sceneManager->window->draw(shape);
-
+	_GameObject->sceneManager->window->draw(shape);*/
 }
 
 void LLGP::Renderer::FixedUpdate(float fixedDeltaTime)
