@@ -42,10 +42,11 @@ namespace LLGP
 		{
 			Binding<T...> listener = Binding<T...>(inFunc, contextObj);
 
-			if (std::find_if(listeners.begin(), listeners.end(), [listener](Binding<T...> b) {return listener.hash_code() == b.hash_code() && listener == b;}) == listeners.end())
-			{
+			/*if (std::find_if(listeners.begin(), listeners.end(), 
+			[listener](Binding<T...> b) { return listener == b;}) == listeners.end())
+			{*/
 				listeners.push_back(listener);
-			}
+			//}
 		}
 		void RemoveListener(void* contextObj, const std::function<void(T...)> inFunc)
 		{

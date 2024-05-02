@@ -12,10 +12,11 @@ void LLGP::Bounder::Start()
 	ren->SetTexture(tex);
 
 	//needs a collider 
-	CircleCollider* collider =  AddComponent<CircleCollider>();
-	collider->moveable = false;
+	AABBCollider* collider =  AddComponent<AABBCollider>();
+	collider->moveable = true;
 	collider->position = this->transform.position;
-	collider->radius = tex.RectTexSize.y / tex.spritesInTexture.y / 2;
-	collider->type = Circle;
+	collider->width = 40;
+	collider->height = 40;
+	collider->type = AABB;
 
 }
