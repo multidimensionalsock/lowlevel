@@ -21,10 +21,17 @@ namespace LLGP
 			contextObj = _contextObj;
 			listener = std::move(func);
 		}
-		bool operator==(const Binding<T...>& rhs) { return contextObj == rhs.contextObj; }
+		bool operator==(const Binding<T...>& rhs)
+		{
+			return contextObj == rhs.contextObj;
+		}
 		bool operator!=(const Binding<T...>& rhs) { return !(this == rhs); }
 		constexpr size_t hash_code() const noexcept { return listener.target_type().hash_code(); }
-		Binding<T...>& Invoke(T... args) { listener(static_cast<T&&>(args)...); return (*this); }
+		Binding<T...>& Invoke(T... args)
+		{
+			listener(static_cast<T&&>(args)...);
+			return (*this);
+		}
 		void operator()(T... args) { listener(static_cast<T&&>(args)...); }
 	};
 
@@ -36,26 +43,45 @@ namespace LLGP
 
 	public:
 
-		Event<T...>& Invoke(T... args) { for (Binding<T...> l : listeners) l.Invoke(static_cast<T&&>(args)...); return (*this); }
+		Event<T...>& Invoke(T... args)
+		{
+			for (auto& l : listeners)
+			{
+				l.Invoke(static_cast<T&&>(args)...);
+			}
+			return (*this);
+		}
 
 		void AddListener(void* contextObj, const std::function<void(T...)> inFunc)
 		{
 			Binding<T...> listener = Binding<T...>(inFunc, contextObj);
 
-			/*if (std::find_if(listeners.begin(), listeners.end(), 
-			[listener](Binding<T...> b) { return listener == b;}) == listeners.end())
-			{*/
+			auto const itr = std::find_if(listeners.begin(), listeners.end(), [&listener](Binding<T...> const& b)
+				{
+					return listener.hash_code() == b.hash_code() && listener == b;
+				});
+
+
+			if (itr == listeners.end())
+			{
 				listeners.push_back(listener);
-			//}
+			}
 		}
 		void RemoveListener(void* contextObj, const std::function<void(T...)> inFunc)
 		{
 			Binding<T...> listener = Binding<T...>(inFunc, contextObj);
 
-			std::erase_if(listeners, [listener](Binding<T...> b) {return listener.hash_code() == b.hash_code() && listener == b; });
+			listeners.erase([listener](Binding<T...> const b) { return listener.hash_code() == b.hash_code() && listener == b; });
 		}
-		void Empty() { listeners.clear(); }
+		void Empty()
+		{
+			listeners.clear();
+		}
 
-		Event<T...>& operator()(T... args) { Invoke(args...); return (*this); }
+		Event<T...>& operator()(T... args)
+		{
+			Invoke(args...);
+			return (*this);
+		}
 	};
 }
