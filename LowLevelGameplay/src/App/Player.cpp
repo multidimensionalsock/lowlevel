@@ -24,8 +24,6 @@ void LLGP::Player::Start()
 
 	//collider
 	AABBCollider* collider = AddComponent<AABBCollider>();
-	collider->position = transform.position;
-	collider->moveable = true;
 	collider->width = 40;
 	collider->height = 40;
 	sceneManager->AddCollider(collider);

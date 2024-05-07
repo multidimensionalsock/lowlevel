@@ -9,11 +9,9 @@ namespace LLGP
 	public:
 		AABBCollider(GameObject* owner);
 
-		bool moveable;
 
 		float width;
 		float height;
-		Vector2<float> position;
 
 		/*void SetMovement(bool val) 
 		{
@@ -23,7 +21,6 @@ namespace LLGP
 
 		}*/
 
-		void Update(float deltaTime) override;
 
 	};
 
@@ -31,10 +28,7 @@ namespace LLGP
 	{
 	public:
 		CircleCollider(GameObject* owner);
-		bool moveable;
 		float radius;
-		Vector2<float> position;
 
-		void Update(float deltaTime) override;
 	};
 }

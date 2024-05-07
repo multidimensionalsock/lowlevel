@@ -5,8 +5,8 @@
 
 bool LLGP::Collision::CircleCircleCollision(CircleCollider* circle1, CircleCollider* circle2)
 {
-	Vector2<float> vec = Vector2<float>((circle1->position.x - circle2->position.x),
-		(circle1->position.y - circle2->position.y));
+	Vector2<float> vec = Vector2<float>((circle1->GetGameObject()->transform.position.x - circle2->GetGameObject()->transform.position.x),
+		(circle1->GetGameObject()->transform.position.y - circle2->GetGameObject()->transform.position.y));
 	float distance = sqrt((vec.x * vec.x) + (vec.y * vec.y));
 	float distanceToCollide = (circle1->radius + circle2->radius);
 	return distance < distanceToCollide;
@@ -31,8 +31,8 @@ bool LLGP::Collision::AABBAABBCollision(AABBCollider* box1, AABBCollider* box2)
 bool LLGP::Collision::CircleAABBCollision(CircleCollider* circle, AABBCollider* box)
 {
 	//circle side 
-	Vector2<float> vec = Vector2<float>((box->position.x - circle->position.x),
-		(box->position.y - circle->position.y));
+	Vector2<float> vec = Vector2<float>((box->GetGameObject()->transform.position.x - circle->GetGameObject()->transform.position.x),
+		(box->GetGameObject()->transform.position.y - circle->GetGameObject()->transform.position.y));
 	float distance = sqrt((vec.x * vec.x) + (vec.y * vec.y));
 	float distanceToCollideX = (circle->radius + box->width);
 	float distanceToCollideY = (circle->radius + box->height);

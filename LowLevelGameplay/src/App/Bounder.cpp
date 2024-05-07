@@ -13,8 +13,6 @@ void LLGP::Bounder::Start()
 
 	//needs a collider 
 	AABBCollider* collider =  AddComponent<AABBCollider>();
-	collider->moveable = true;
-	collider->position = this->transform.position;
 	collider->width = 40;
 	collider->height = 40;
 	collider->type = AABB;

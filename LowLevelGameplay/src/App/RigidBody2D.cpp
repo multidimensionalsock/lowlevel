@@ -30,7 +30,7 @@ void LLGP::RigidBody2D::OnCollisionEnter(GameObject* other)
 		AABBCollider* collider = _GameObject->GetComponent<AABBCollider>();
 		if (othercollider != nullptr && collider != nullptr)
 		{
-			if (abs(othercollider->position.y - (collider->position.y + collider->height)) > 1)
+			if (abs(othercollider->GetGameObject()->transform.position.y - (othercollider->GetGameObject()->transform.position.y + collider->height)) > 1)
 			{
 				colliding = false;
 				return;
