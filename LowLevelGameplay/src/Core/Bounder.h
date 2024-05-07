@@ -3,10 +3,12 @@
 
 namespace LLGP
 {
+	class Player;
+
 	class Bounder : public Enemy
 	{
 	public: 
-		Bounder(SceneManager* manager) : Enemy(manager) { Start(); };
+		Bounder(SceneManager* manager, Player* playerRef) : Enemy(manager, playerRef) { Start(); };
 
 	protected:
 		void Start();

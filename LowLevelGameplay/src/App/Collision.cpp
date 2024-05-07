@@ -15,10 +15,12 @@ bool LLGP::Collision::CircleCircleCollision(CircleCollider* circle1, CircleColli
 
 bool LLGP::Collision::AABBAABBCollision(AABBCollider* box1, AABBCollider* box2)
 {
-	if (box1->position.x < box2->position.x + box2->width &&
-		box1->position.x + box1->width > box2->position.x &&
-		box1->position.y < box2->position.y + box2->height &&
-		box1->position.y + box1->height > box2->position.y) // top
+	LLGP::Vector2<float> box1Pos = box1->GetGameObject()->transform.position;
+	LLGP::Vector2<float> box2Pos = box2->GetGameObject()->transform.position;
+	if (box1Pos.x < box2Pos.x + box2->width &&
+		box1Pos.x + box1->width > box2Pos.x &&
+		box1Pos.y < box2Pos.y + box2->height &&
+		box1Pos.y + box1->height > box2Pos.y) // top
 	{
 		return true;
 	}

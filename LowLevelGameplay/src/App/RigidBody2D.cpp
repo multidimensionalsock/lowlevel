@@ -1,6 +1,7 @@
 #include "Core/RigidBody2D.h"
 #include "Core/GameObject.h"
 #include "Core/ColliderTypes.h"
+#include <iostream>
 #define GRAVITY 0.01f //meters per second 
 
 void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
@@ -23,6 +24,7 @@ void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 
 void LLGP::RigidBody2D::OnCollisionEnter(GameObject* other)
 {
+	std::cout << _GameObject->GetTag() << " is colliding with " << other->GetTag() << std::endl;
 	if (other->CompareTag("Floor")) {
 		AABBCollider* othercollider = other->GetComponent<AABBCollider>();
 		AABBCollider* collider = _GameObject->GetComponent<AABBCollider>();
@@ -46,6 +48,7 @@ void LLGP::RigidBody2D::OnCollisionExit(GameObject* other)
 
 LLGP::RigidBody2D::RigidBody2D(GameObject* owner)
 {
+	colliding = false;
 	_GameObject = owner;
 	
 	owner->sceneManager->Update.AddListener(this, std::bind(&RigidBody2D::Update, this, std::placeholders::_1));
