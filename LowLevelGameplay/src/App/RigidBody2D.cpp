@@ -25,18 +25,18 @@ void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 void LLGP::RigidBody2D::OnCollisionEnter(GameObject* other)
 {
 	std::cout << _GameObject->GetTag() << " is colliding with " << other->GetTag() << std::endl;
-	if (other->CompareTag("Floor")) {
+	//if (other->GetTag() == "Floor") {
 		AABBCollider* othercollider = other->GetComponent<AABBCollider>();
 		AABBCollider* collider = _GameObject->GetComponent<AABBCollider>();
 		if (othercollider != nullptr && collider != nullptr)
 		{
-			if (abs(othercollider->GetGameObject()->transform.position.y - (othercollider->GetGameObject()->transform.position.y + collider->height)) > 1)
+			if (abs(othercollider->GetGameObject()->transform.position.y - (collider->GetGameObject()->transform.position.y + collider->height)) > 1)
 			{
 				colliding = false;
 				return;
 			}
 		}
-	}
+	//}
 	colliding = true; 
 }
 
