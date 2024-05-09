@@ -2,6 +2,7 @@
 #include "Core/Player.h"
 #include "Core/Vector2.h"
 #include "Core/ColliderTypes.h"
+#include "Core/Egg.h"
 
 LLGP::BounderAI::~BounderAI()
 {
@@ -111,5 +112,6 @@ void LLGP::BounderAI::PerformMovePosition(float deltaTime)
 void LLGP::BounderAI::PerformDropEgg()
 {
 	//drop the egg
-	//destory self 
+	Egg* egg = new Egg(_GameObject->sceneManager, parentRef->_player);
+	delete(_GameObject);
 }

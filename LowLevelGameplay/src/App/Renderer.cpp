@@ -11,6 +11,14 @@ LLGP::Renderer::Renderer(GameObject* owner)
 	owner->sceneManager->Draw.AddListener(this, std::bind(&Renderer::Draw, this, std::placeholders::_1));
 }
 
+LLGP::Renderer::~Renderer()
+{
+	_GameObject->sceneManager->Update.RemoveListener(this, std::bind(&Renderer::Update, this, std::placeholders::_1));
+	_GameObject->sceneManager->FixedUpdate.RemoveListener(this, std::bind(&Renderer::FixedUpdate, this, std::placeholders::_1));
+	_GameObject->sceneManager->Draw.RemoveListener(this, std::bind(&Renderer::Draw, this, std::placeholders::_1));
+	_GameObject = nullptr;
+}
+
 void LLGP::Renderer::SetTexture(TextureDetails renderDetails)
 {
 	rectPos = LLGP::Vector2<float>(900, 450);

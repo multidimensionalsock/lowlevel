@@ -24,6 +24,7 @@ namespace LLGP
 		TextureDetails player2Bird;
 		TextureDetails pterdactyl;
 		TextureDetails sparkle;
+		TextureDetails egg;
 
 		Textures()
 		{
@@ -35,6 +36,7 @@ namespace LLGP
 			player2Bird = loadTextureDetails("Textures/Player2bird 1.png", LLGP::Vector2i(14, 1)); //needs spirte sheet adjustment 
 			pterdactyl = loadTextureDetails("Textures/pterpdactyl 1.png", LLGP::Vector2i(3, 1)); //just a tail
 			sparkle = loadTextureDetails("Textures/sparkle 1.png", LLGP::Vector2i(3, 1));//works
+			egg = loadTextureDetails("Textures/eggCrack 1.png", LLGP::Vector2i(6, 1));
 		} 
 
 	private:

@@ -9,6 +9,7 @@ namespace LLGP
 	class Enemy : public GameObject
 	{
 	public: 
+		Enemy() = default;
 		Enemy(SceneManager* manager, Player* player) : GameObject(manager) { _player = player; }
 
 		Player* _player;

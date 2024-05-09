@@ -18,6 +18,7 @@ namespace LLGP
 		//GameObject(std::string name, std::string tag) { m_Name = name; m_Tag = tag; }
 		GameObject(SceneManager* _sceneManager) { sceneManager = _sceneManager; }
 		GameObject(const GameObject&) = default;
+		~GameObject();
 		Transform transform;
 		inline void SetName(std::string newName) { m_Name = newName; }
 		inline std::string GetName() { return m_Name; }

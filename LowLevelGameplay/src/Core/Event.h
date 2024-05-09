@@ -73,8 +73,13 @@ namespace LLGP
 		{
 			Binding<T...> listener = Binding<T...>(inFunc, contextObj);
 
-			listeners.erase([listener](Binding<T...> const b) { return listener.hash_code() == b.hash_code() && listener == b; });
+			auto itr = std::find(listeners.begin(), listeners.end(), listener);
+
+			if (itr == listeners.end()) return;
+
+			listeners.erase(itr);
 		}
+
 		void Empty()
 		{
 			listeners.clear();

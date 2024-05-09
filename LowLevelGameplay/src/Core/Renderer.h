@@ -9,6 +9,7 @@ namespace LLGP
 	public: 
 		//Renderer();
 		Renderer(GameObject* owner);
+		~Renderer();
 
 		void Update(float deltaTime) override; // called every frame
 		void FixedUpdate(float fixedDeltaTime) override;

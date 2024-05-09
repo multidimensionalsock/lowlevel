@@ -1,14 +1,22 @@
 #include "Core/GameObject.h"
 
+LLGP::GameObject::~GameObject()
+{
+	for (int i = 0; i < m_Components.size(); i++)
+	{
+		delete(m_Components[i]);
+	}
+}
+
 void LLGP::GameObject::Colliding(bool isColliding, GameObject* other)
 {
 	bool currentlyCollidingWith = false;
 	auto collidingwithindex = std::find(_collidingWith.begin(), _collidingWith.end(), other);;
 	
-		if (collidingwithindex != _collidingWith.end())
-		{
-			currentlyCollidingWith = true;
-		}
+	if (collidingwithindex != _collidingWith.end())
+	{
+		currentlyCollidingWith = true;
+	}
 	
 	if (currentlyCollidingWith && isColliding)
 	{
