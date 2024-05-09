@@ -21,7 +21,7 @@ void LLGP::BounderAI::OnCollisionEnter(GameObject* other)
 		float playerMidpoint = other->transform.position.y + (playerCollider->height / 2);
 		float midpoint = _GameObject->transform.position.y + (collider->height / 2);
 
-		if (playerMidpoint > midpoint) 
+		if (playerMidpoint < midpoint) 
 		{
 			//player wins collision
 			bounderState = DROPEGG;

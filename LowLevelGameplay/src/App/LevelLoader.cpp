@@ -22,7 +22,7 @@ void LLGP::LevelLoader::AddColliders()
 {
 	//collider 1
 	GameObject* collider1 = new GameObject(sceneManager);
-	collider1->SetTag("Floor1");
+	collider1->SetTag("Floor");
 	AABBCollider* col1 = collider1->AddComponent<AABBCollider>();
 	col1->width = 65;
 	col1->height = 16; 
@@ -31,7 +31,7 @@ void LLGP::LevelLoader::AddColliders()
 	
 	//collider 2
 	GameObject* collider2 = new GameObject(sceneManager);
-	collider2->SetTag("Floor2");
+	collider2->SetTag("Floor");
 	AABBCollider* col2 = collider2->AddComponent<AABBCollider>();
 	col2->width = 195;
 	col2->height = 20;
@@ -40,7 +40,7 @@ void LLGP::LevelLoader::AddColliders()
 
 	//collider 3 
 	GameObject* collider3 = new GameObject(sceneManager);
-	collider3->SetTag("Floor3");
+	collider3->SetTag("Floor");
 	AABBCollider* col3 = collider3->AddComponent<AABBCollider>();
 	col3->width = 102;
 	col3->height = 15;
@@ -49,7 +49,7 @@ void LLGP::LevelLoader::AddColliders()
 
 	//collider 4
 	GameObject* collider4 = new GameObject(sceneManager);
-	collider4->SetTag("Floor4");
+	collider4->SetTag("Floor");
 	AABBCollider* col4 = collider4->AddComponent<AABBCollider>();
 	col4->width = 134;
 	col4->height = 15;
@@ -58,7 +58,7 @@ void LLGP::LevelLoader::AddColliders()
 
 	//collider 5
 	GameObject* collider5 = new GameObject(sceneManager);
-	collider5->SetTag("Floor5");
+	collider5->SetTag("Floor");
 	AABBCollider* col5 = collider5->AddComponent<AABBCollider>();
 	col5->width = 144;
 	col5->height = 12;
@@ -67,7 +67,7 @@ void LLGP::LevelLoader::AddColliders()
 
 	//collider 6
 	GameObject* collider6 = new GameObject(sceneManager);
-	collider6->SetTag("Floor6");
+	collider6->SetTag("Floor");
 	AABBCollider* col6 = collider6->AddComponent<AABBCollider>();
 	col6->width = 124;
 	col6->height = 21;
@@ -76,7 +76,7 @@ void LLGP::LevelLoader::AddColliders()
 
 	//collider 7
 	GameObject* collider7 = new GameObject(sceneManager);
-	collider7->SetTag("Floor7");
+	collider7->SetTag("Floor");
 	AABBCollider* col7 = collider7->AddComponent<AABBCollider>();
 	col7->width = 92;
 	col7->height = 16;
@@ -85,7 +85,7 @@ void LLGP::LevelLoader::AddColliders()
 
 	//collider 8 
 	GameObject* collider8 = new GameObject(sceneManager);
-	collider8->SetTag("Floor8");
+	collider8->SetTag("Floor");
 	AABBCollider* col8 = collider8->AddComponent<AABBCollider>();
 	col8->width = 473;
 	col8->height = 7;

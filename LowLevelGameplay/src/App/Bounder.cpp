@@ -19,6 +19,7 @@ void LLGP::Bounder::Start()
 	collider->width = 40;
 	collider->height = 40;
 	collider->type = AABB;
+	sceneManager->AddCollider(collider);
 
 	BounderAI* AI = AddComponent<BounderAI>();
 }
