@@ -51,6 +51,14 @@ namespace LLGP
 			return temp; 
 		}
 
+		float Distance(Vector2<T> rhs, Vector2<T> lhs) 
+		{
+			float x = rhs.x - lhs.x;
+			float y = rhs.y - lhs.y;
+			float distance = sqrt((x * x) + (y * y));
+			return distance;
+		}
+
 		//static = only storedin memory one time even if theres 100000 vector2s
 		static float Dot(const Vector2<T>& lhs, const Vector2<T>& rhs) { return (float)(lhs.x * rhs.x + lhs.y * rhs.y); }
 		static float Angle(const Vector2<T>& lhs, const Vector2<T>& rhs) { return acos(Dot(lhs.Normalised(), rhs.Normalised())); }
