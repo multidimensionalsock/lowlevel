@@ -10,10 +10,12 @@ namespace LLGP
 		~EggLogic();
 
 		void FixedUpdate(float fixedDeltaTime) override;
+		//void OnCollisionEnter(GameObject* other) override {};
 
 	private:
 		float TimeBeforeSpawn = 10.f; //how many second the egg will exist before hatching 
 		int framesActive = 0; //how mnay frames the egg has existed for
+		bool grounded = false;
 
 		void Start();
 

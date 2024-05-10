@@ -25,6 +25,7 @@ namespace LLGP
 		void OnCollisionEnter(GameObject* other) override;
 		void OnCollisionExit(GameObject* other) override;
 		RigidBody2D(GameObject* owner);
+		~RigidBody2D();
 		void SetTransform(Transform* transform) { _transform = transform; }
 
 		Vector2<float> GetVelocity() { return _velocity; }

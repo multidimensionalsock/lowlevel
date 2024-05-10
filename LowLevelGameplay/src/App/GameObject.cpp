@@ -6,17 +6,13 @@ LLGP::GameObject::~GameObject()
 	{
 		delete(m_Components[i]);
 	}
+	m_Components.clear();
 }
 
 void LLGP::GameObject::Colliding(bool isColliding, GameObject* other)
 {
-	
-	std::remove_if(_collidingWith.begin(), _collidingWith.end(), [](GameObject* o) {return o == nullptr; });
-	//if (other == nullptr) return;
-	
 	bool currentlyCollidingWith = false;
 	auto collidingwithindex = std::find(_collidingWith.begin(), _collidingWith.end(), other);
-
 
 	if (collidingwithindex != _collidingWith.end())
 	{
@@ -49,6 +45,6 @@ void LLGP::GameObject::Colliding(bool isColliding, GameObject* other)
 		}
 		return;
 	}		
-	
+	std::remove_if(_collidingWith.begin(), _collidingWith.end(), [](GameObject* o) { return o == nullptr; });
 }
 

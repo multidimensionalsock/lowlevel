@@ -34,9 +34,13 @@ void LLGP::BounderAI::Start()
 {
 	parentRef = static_cast<Enemy*>(_GameObject);
 	bounderState = PATROL_RIGHT;
+
+
 	//add functions to events. 
 	_GameObject->sceneManager->Update.AddListener(this, std::bind(&BounderAI::Update, this, std::placeholders::_1));
 	_GameObject->sceneManager->FixedUpdate.AddListener(this, std::bind(&BounderAI::FixedUpdate, this, std::placeholders::_1));
+
+
 }
 
 void LLGP::BounderAI::Update(float deltaTime)
@@ -113,5 +117,6 @@ void LLGP::BounderAI::PerformDropEgg()
 {
 	//drop the egg
 	Egg* egg = new Egg(_GameObject->sceneManager, parentRef->_player);
+	egg->transform = _GameObject->transform;
 	delete(_GameObject);
 }

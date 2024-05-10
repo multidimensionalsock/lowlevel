@@ -3,6 +3,7 @@
 #include "Core/ColliderTypes.h"
 #include "Core/BounderAI.h"
 #include <cstdlib>
+#include "Core/RigidBody2D.h"
 
 void LLGP::Bounder::Start()
 {

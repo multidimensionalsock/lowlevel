@@ -6,6 +6,7 @@ namespace LLGP
 	{
 	public:
 		Egg(SceneManager* _sceneManager, Player* playerRef) : Enemy(_sceneManager, playerRef) { Start(); };
+		~Egg();
 
 		void Start();
 

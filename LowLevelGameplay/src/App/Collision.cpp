@@ -39,22 +39,24 @@ bool LLGP::Collision::AABBAABBCollision(AABBCollider* box1, AABBCollider* box2)
 bool LLGP::Collision::CircleAABBCollision(CircleCollider* circle, AABBCollider* box)
 {
 	//circle side 
-	if (circle == nullptr || box == nullptr) return false;
-	Vector2<float> vec = Vector2<float>((box->GetGameObject()->transform.position.x - circle->GetGameObject()->transform.position.x),
-		(box->GetGameObject()->transform.position.y - circle->GetGameObject()->transform.position.y));
-	float distance = sqrt((vec.x * vec.x) + (vec.y * vec.y));
-	float distanceToCollideX = (circle->radius + box->width);
-	float distanceToCollideY = (circle->radius + box->height);
+	//if (circle == nullptr || box == nullptr) return false;
 
-	if (distance < distanceToCollideX || distance < distanceToCollideY)
-		return true;
-	
-	//circle corner 
-	//pythadoras for AABB radius and then add radius of circle to find distance
-	//and compare 
-	float AABBradius = sqrt((box->height * box->height) + (box->width * box->width));
-	float distanceToCollide = circle->radius + AABBradius;
-	return distance < distanceToCollide;
+	//Vector2<float> vec = Vector2<float>((box->GetGameObject()->transform.position.x - circle->GetGameObject()->transform.position.x),
+	//	(box->GetGameObject()->transform.position.y - circle->GetGameObject()->transform.position.y));
+	//float distance = sqrt((vec.x * vec.x) + (vec.y * vec.y));
+	//float distanceToCollideX = (circle->radius + box->width);
+	//float distanceToCollideY = (circle->radius + box->height);
+
+	//if (distance < distanceToCollideX || distance < distanceToCollideY)
+	//	return true;
+	//
+	////circle corner 
+	////pythadoras for AABB radius and then add radius of circle to find distance
+	////and compare 
+	//float AABBradius = sqrt((box->height * box->height) + (box->width * box->width));
+	//float distanceToCollide = circle->radius + AABBradius;
+	//return distance < distanceToCollide;
+	return false;
 }
 
 bool LLGP::Collision::CircleAABBCollision(AABBCollider* box, CircleCollider* circle)

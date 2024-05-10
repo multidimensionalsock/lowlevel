@@ -2,7 +2,7 @@
 #include "Core/GameObject.h"
 #include "Core/ColliderTypes.h"
 #include <iostream>
-#define GRAVITY 18.f //meters per second 
+#define GRAVITY 40.f //meters per second 
 
 void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 {
@@ -64,6 +64,12 @@ LLGP::RigidBody2D::RigidBody2D(GameObject* owner)
 
 	_velocity = Vector2<float>::zero;
 	_force = Vector2<float>::zero;
+}
+
+LLGP::RigidBody2D::~RigidBody2D()
+{
+	_GameObject->sceneManager->Update.RemoveListener(this, std::bind(&RigidBody2D::Update, this, std::placeholders::_1));
+	_GameObject->sceneManager->FixedUpdate.RemoveListener(this, std::bind(&RigidBody2D::FixedUpdate, this, std::placeholders::_1));
 }
 
 
