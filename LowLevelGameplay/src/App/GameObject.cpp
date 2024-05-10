@@ -10,6 +10,7 @@ LLGP::GameObject::~GameObject()
 
 void LLGP::GameObject::Colliding(bool isColliding, GameObject* other)
 {
+	if (other == nullptr) return;
 	bool currentlyCollidingWith = false;
 	auto collidingwithindex = std::find(_collidingWith.begin(), _collidingWith.end(), other);;
 	

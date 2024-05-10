@@ -33,7 +33,7 @@ void LLGP::SceneManager::AddCollider(LLGP::Collision* collider)
 
 void LLGP::SceneManager::RemoveCollider(LLGP::Collision* collider)
 {
-	for (int i = 0; i < _SceneColliders.size(); i++)
+	for (int i = 0; i < _SceneColliders.size() - 1; i++)
 	{
 		if (_SceneColliders[i]->uuid == collider->uuid)
 			_SceneColliders.erase(std::next(_SceneColliders.begin(), i));

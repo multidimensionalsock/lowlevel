@@ -3,8 +3,15 @@
 #include "Core/Renderer.h"
 #include "Core/ColliderTypes.h"
 
+LLGP::Collision::~Collision()
+{
+	_GameObject->sceneManager->RemoveCollider(this);
+}
+
 bool LLGP::Collision::CircleCircleCollision(CircleCollider* circle1, CircleCollider* circle2)
 {
+	if (circle1 == nullptr || circle2 == nullptr) return false;
+
 	Vector2<float> vec = Vector2<float>((circle1->GetGameObject()->transform.position.x - circle2->GetGameObject()->transform.position.x),
 		(circle1->GetGameObject()->transform.position.y - circle2->GetGameObject()->transform.position.y));
 	float distance = sqrt((vec.x * vec.x) + (vec.y * vec.y));
@@ -15,6 +22,7 @@ bool LLGP::Collision::CircleCircleCollision(CircleCollider* circle1, CircleColli
 
 bool LLGP::Collision::AABBAABBCollision(AABBCollider* box1, AABBCollider* box2)
 {
+	if (box1 == nullptr || box2 == nullptr) return false;
 	LLGP::Vector2<float> box1Pos = box1->GetGameObject()->transform.position;
 	LLGP::Vector2<float> box2Pos = box2->GetGameObject()->transform.position;
 	if (box1Pos.x < box2Pos.x + box2->width &&
@@ -31,6 +39,7 @@ bool LLGP::Collision::AABBAABBCollision(AABBCollider* box1, AABBCollider* box2)
 bool LLGP::Collision::CircleAABBCollision(CircleCollider* circle, AABBCollider* box)
 {
 	//circle side 
+	if (circle == nullptr || box == nullptr) return false;
 	Vector2<float> vec = Vector2<float>((box->GetGameObject()->transform.position.x - circle->GetGameObject()->transform.position.x),
 		(box->GetGameObject()->transform.position.y - circle->GetGameObject()->transform.position.y));
 	float distance = sqrt((vec.x * vec.x) + (vec.y * vec.y));

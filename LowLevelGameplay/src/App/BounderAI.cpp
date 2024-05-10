@@ -6,8 +6,8 @@
 
 LLGP::BounderAI::~BounderAI()
 {
-	//_GameObject->sceneManager->Update.RemoveListener(this, std::bind(&BounderAI::Update, this, std::placeholders::_1));
-	//_GameObject->sceneManager->FixedUpdate.RemoveListener(this, std::bind(&BounderAI::FixedUpdate, this, std::placeholders::_1));
+	_GameObject->sceneManager->Update.RemoveListener(this, std::bind(&BounderAI::Update, this, std::placeholders::_1));
+	_GameObject->sceneManager->FixedUpdate.RemoveListener(this, std::bind(&BounderAI::FixedUpdate, this, std::placeholders::_1));
 	parentRef = nullptr;
 }
 

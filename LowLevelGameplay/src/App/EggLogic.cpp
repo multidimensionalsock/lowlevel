@@ -2,11 +2,16 @@
 #include "Core/GameObject.h"
 #include "Core/Bounder.h"
 
+LLGP::EggLogic::~EggLogic()
+{
+	_GameObject->sceneManager->FixedUpdate.RemoveListener(this, std::bind(&EggLogic::FixedUpdate, this, std::placeholders::_1));
+}
+
 void LLGP::EggLogic::FixedUpdate(float fixedDeltaTime)
 {
 	framesActive++;
 
-	if (framesActive > TimeBeforeSpawn) 
+	if (framesActive > TimeBeforeSpawn * 50) 
 	{
 		SpawnEnemy();
 	}

@@ -6,7 +6,7 @@
 #include "Core/SceneManager.h"
 #include "Core/Textures.h"
 
-#define FIXEDFRAMERATE 0.0002f //50 fps i think???
+#define FIXEDFRAMERATE 0.002f //50 fps i think???
 
 //namespace LLGP
 //{

@@ -18,6 +18,7 @@ namespace LLGP
 	{
 	public:
 		CollisionType type;
+		~Collision();
 
 
 		static bool CircleCircleCollision(CircleCollider* circle1, CircleCollider* circle2);

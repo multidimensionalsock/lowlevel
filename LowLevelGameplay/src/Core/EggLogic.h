@@ -7,7 +7,7 @@ namespace LLGP
 	{
 	public:
 		EggLogic(GameObject* owner) : MonoBehaviour(owner) { Start(); }
-		~EggLogic() {};
+		~EggLogic();
 
 		void FixedUpdate(float fixedDeltaTime) override;
 

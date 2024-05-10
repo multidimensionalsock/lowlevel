@@ -2,7 +2,7 @@
 #include "Core/GameObject.h"
 #include "Core/ColliderTypes.h"
 #include <iostream>
-#define GRAVITY 0.01f //meters per second 
+#define GRAVITY 0.1f //meters per second 
 
 void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 {
