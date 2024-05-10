@@ -2,14 +2,14 @@
 #include "Core/GameObject.h"
 #include "Core/ColliderTypes.h"
 #include <iostream>
-#define GRAVITY 0.1f //meters per second 
+#define GRAVITY 18.f //meters per second 
 
 void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 {
 	if (!colliding)
 	{
 		float gravity = GRAVITY;
-		_force.y += gravity;
+		_force.y += gravity * fixedDeltaTime;
 		
 		//_transform->position.y += gravity;
 	}
@@ -20,6 +20,8 @@ void LLGP::RigidBody2D::FixedUpdate(float fixedDeltaTime)
 
 	//need to add a drag force to slow it in some place but LATER ISSUES
 }
+
+//collkision with other bounder lcoks gravity 
 
 
 void LLGP::RigidBody2D::OnCollisionEnter(GameObject* other)
@@ -46,8 +48,10 @@ void LLGP::RigidBody2D::OnCollisionEnter(GameObject* other)
 
 void LLGP::RigidBody2D::OnCollisionExit(GameObject* other)
 {
-	if (_GameObject->_collidingWith.empty())
+	if (other->GetTag() == "Floor")
 		colliding = false;
+	//this was breaking bounder collisions bc the bounder wasnt getting deleted from the list 
+		
 }
 
 LLGP::RigidBody2D::RigidBody2D(GameObject* owner)

@@ -11,7 +11,7 @@ void LLGP::EggLogic::FixedUpdate(float fixedDeltaTime)
 {
 	framesActive++;
 
-	if (framesActive > TimeBeforeSpawn * 50) 
+	if (framesActive > 120 * TimeBeforeSpawn) 
 	{
 		SpawnEnemy();
 	}

@@ -6,7 +6,7 @@
 #include "Core/SceneManager.h"
 #include "Core/Textures.h"
 
-#define FIXEDFRAMERATE 0.002f //50 fps i think???
+#define FIXEDFRAMERATE 1.f / 120.f
 
 //namespace LLGP
 //{
@@ -35,15 +35,14 @@
 
 			std::chrono::steady_clock::time_point now = std::chrono::steady_clock::now();
 			deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(now - lastTime).count() / 1000000.f;
-			
 			lastTime = now;
 
 			//fixed update not calling 50 times a second
 			timeSincePhysicsStep += deltaTime;
-			while (timeSincePhysicsStep > FIXEDFRAMERATE) 
+			while (timeSincePhysicsStep >= FIXEDFRAMERATE) 
 			{
 				//run fixed update on components 
-				sceneManager->CallFixedUpdate(timeSincePhysicsStep - FIXEDFRAMERATE); //fixed delta time
+				sceneManager->CallFixedUpdate(timeSincePhysicsStep); //fixed delta time
 				//collect collision info
 				sceneManager->CheckCollisions();
 				timeSincePhysicsStep -= FIXEDFRAMERATE;
